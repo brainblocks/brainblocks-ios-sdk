@@ -39,9 +39,8 @@ Pod::Spec.new do |s|
 
   s.source_files  = "BrainBlocksKit", "BrainBlocksKit/**/*.{h,m,swift}"
 
-  s.resource  = "BrainBlocksKit/Raiblocks.png"
   s.resource_bundles = {
-    'BrainBlocksKit' => ['BrainBlocksKit/*.{storyboard,xib}']
+    'BrainBlocksKit' => ['BrainBlocksKit/*.{storyboard,xib,png}']
   }
 
   s.dependency 'Alamofire', '~> 4.5'
