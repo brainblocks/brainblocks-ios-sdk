@@ -133,6 +133,7 @@
                         <outlet property="paymentUI" destination="gKv-AW-gTy" id="Roc-yI-yYG"/>
                         <outlet property="progressBar" destination="oQ3-AD-krQ" id="WPo-t4-YCf"/>
                         <outlet property="qrCodeImageView" destination="yA2-QB-KCg" id="KQP-Wb-rEx"/>
+                        <outlet property="raiblocksButton" destination="ZTF-wR-bBu" id="xiX-gW-zc4"/>
                         <outlet property="timerLabel" destination="gcK-Xm-fgf" id="BbP-Yh-tHw"/>
                     </connections>
                 </viewController>

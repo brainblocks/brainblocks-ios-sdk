@@ -19,13 +19,13 @@ public class PaymentViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var raiblocksButton: UIButton!
     
     let brainBlocksManager = BrainBlocksPayment()
     var countdownTimer: Timer!
     var totalTime = 120
     var progressValue: Float = 1.0
     var qrSet: Bool = false
-    
     var amount: Double {
         return Double(round(Double(BrainBlocksPayment.paymentAmount)) / 1000)
     }
@@ -43,12 +43,18 @@ public class PaymentViewController: UIViewController {
         // listen for BrainBlocksSessionStartFailed notification
         NotificationCenter.default.addObserver(self, selector: #selector(dismissPaymentView), name: NSNotification.Name(rawValue: "BrainBlocksSessionStartFailed"), object: nil)
         
+        // Pull framework bundle
+        let podBundle = Bundle(for: PaymentViewController.self)
+        let bundleURL = podBundle.url(forResource: "BrainBlocksKit", withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)
+        
         //Pay 0.001 XRB
         amountLabel.text = "Pay \(amount) XRB"
         paymentUI.layer.cornerRadius = 10.0
         paymentUI.layer.masksToBounds = true
         cancelButton.layer.cornerRadius = 10.0
         cancelButton.layer.masksToBounds = true
+        raiblocksButton.setImage(UIImage(named: "Raiblocks.png", in: bundle, compatibleWith: nil), for: .normal)
         accountLabel.isHidden = true
         progressBar.progress = progressValue
         timerLabel.isHidden = true
@@ -145,13 +151,8 @@ public class PaymentViewController: UIViewController {
     }
     
     static func instantiate() -> PaymentViewController {
-        //return UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-        
-        //let bundle = Bundle(identifier: "com.brainblocks.BrainBlocksKit")
-        
-        //let podBundle = Bundle(forClass: PaymentViewController.self)
+        // Pull framework bundle
         let podBundle = Bundle(for: PaymentViewController.self)
-        
         let bundleURL = podBundle.url(forResource: "BrainBlocksKit", withExtension: "bundle")
         let bundle = Bundle(url: bundleURL!)
         
