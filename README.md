@@ -14,8 +14,6 @@ iOS SDK for integrating [BrainBlocks](http://BrainBlocks.io) into a mobile app
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build BrainBlocks SDK 0.0.1+.
-
 To integrate BrainBlocks into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
