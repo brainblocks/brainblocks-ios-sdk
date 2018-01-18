@@ -53,7 +53,7 @@ public class BrainBlocksPayment: UIViewController {
         
         BrainBlocksPayment.paymentdestination = destination
         BrainBlocksPayment.paymentAmount = amount
-        brainBlocksStartSession(amount: amount, destination: destination)
+        brainBlocksStartSession(paymentAmount: amount, paymentDestination: destination)
         
         let paymentViewController = PaymentViewController.instantiate()
         paymentViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
@@ -65,7 +65,7 @@ public class BrainBlocksPayment: UIViewController {
     }
     
     // start brainblocks payment session
-    open func brainBlocksStartSession(amount: Int, destination: String) {
+    open func brainBlocksStartSession(paymentAmount amount: Int, paymentDestination destination: String) {
         
         if destination.validAddress() == false {
             print("Can not launch BrainBlocks Payment Session. Invalid Destination Address.")
