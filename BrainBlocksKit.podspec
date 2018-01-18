@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BrainBlocksKit"
-  s.version      = "1.0"
+  s.version      = "1.0.1"
   s.summary      = "A Payment Framework for Raiblocks."
 
   s.description  = "The BrainBlocksKit is a complete payment framework that can be used in any iOS app to accept Raiblocks."
@@ -39,9 +39,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "BrainBlocksKit", "BrainBlocksKit/**/*.{h,m,swift}"
 
-  # s.resource  = "BrainBlocksKit/Raiblocks.png"
-  # s.resource  = "BrainBlocksKit/Payment.storyboard"
-  # s.resources    = "BrainBlocksKit/*"
+  s.resource  = "BrainBlocksKit/Raiblocks.png"
   s.resource_bundles = {
     'BrainBlocksKit' => ['BrainBlocksKit/*.{storyboard,xib}']
   }
