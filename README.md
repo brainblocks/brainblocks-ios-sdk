@@ -68,7 +68,7 @@ The Following functions can also be used as an alternative to the simple popup u
 // saves payment account address to BrainBlocksPayment.account
 // saves payment amount to BrainBlocksPayment.paymentAmount
 // launch's brainBlocksTransferPayment() automatically 
-func brainBlocksStartSession(amount: Int, destination: String) {}
+func brainBlocksStartSession(paymentAmount amount: Int, paymentDestination destination: String)
 ```
 
 ```swift
