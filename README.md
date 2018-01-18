@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     // Example Function
     func showPayment() {
         // payment rai amount - rai: 0.001 per 1 xrb
+        // current payment amount max cap - 5.0 xrb / 5000 rai
         var amount: Int = 1 
         let paymentAccount: String = "<Your XRB Payment Address Here>"
         
