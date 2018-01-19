@@ -44,6 +44,7 @@ public extension BrainBlocksPayment {
         case TWD = "TWD"
         case ZAR = "ZAR"
         case XRB = "XRB"
+        case USD = "USD"
     }
     
     // converts supplied currency with current
