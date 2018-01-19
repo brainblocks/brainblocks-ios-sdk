@@ -53,7 +53,7 @@ public extension BrainBlocksPayment {
         
         // if xrb - calc local instead and avoid network request
         if currency == .xrb {
-            rai = Int((amount * 1000.0))
+            rai = Int((amount * 1000000))
             completionHandler(rai)
             return
         }
