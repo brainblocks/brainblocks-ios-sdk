@@ -42,6 +42,10 @@ public class BrainBlocksPayment: UIViewController {
     open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentAmount amount: Double, paymentDestination destination: String) -> BrainBlocksPayment {
         var convertAmount: Int = 0
         
+        convertToRai(currency: currency, amount: amount, completionHandler: { (value) in
+            convertAmount = value
+        })
+        
         if destination.validAddress() == false {
             print("Can not launch BrainBlocks Payment. Invalid Destination Address.")
             return BrainBlocksPayment()
@@ -50,10 +54,6 @@ public class BrainBlocksPayment: UIViewController {
         if amount == 0 {
             print("Can not launch BrainBlocks Payment. Missing Amount")
             return BrainBlocksPayment()
-        } else {
-            convertToRai(currency: currency, amount: amount, completionHandler: { (value) in
-                convertAmount = value
-            })
         }
         
         if convertAmount > 5000 {
