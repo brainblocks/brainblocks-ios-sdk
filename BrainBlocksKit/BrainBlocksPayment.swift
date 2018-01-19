@@ -44,32 +44,30 @@ public class BrainBlocksPayment: UIViewController {
         
         convertToRai(currency: currency, amount: amount, completionHandler: { (value) in
             convertAmount = value
+            
+            // after convertAmount is pulled. finish function
+            if destination.validAddress() == false {
+                print("Can not launch BrainBlocks Payment. Invalid Destination Address.")
+            }
+            
+            if amount == 0 {
+                print("Can not launch BrainBlocks Payment. Missing Amount")
+            }
+            
+            if convertAmount > 5000 {
+                print("Can not launch BrainBlocks Payment. Invalid Payment Amount. Max Payment Amount: 5000 rai. Attempted Amount: \(convertAmount)")
+            }
+            
+            BrainBlocksPayment.paymentdestination = destination
+            BrainBlocksPayment.paymentAmount = convertAmount
+            self.brainBlocksStartSession(paymentAmount: convertAmount, paymentDestination: destination)
+            
+            let paymentViewController = PaymentViewController.instantiate()
+            paymentViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+            paymentViewController.modalPresentationStyle = .overCurrentContext
+            
+            contentview.present(paymentViewController, animated: true, completion: nil)
         })
-        
-        if destination.validAddress() == false {
-            print("Can not launch BrainBlocks Payment. Invalid Destination Address.")
-            return BrainBlocksPayment()
-        }
-        
-        if amount == 0 {
-            print("Can not launch BrainBlocks Payment. Missing Amount")
-            return BrainBlocksPayment()
-        }
-        
-        if convertAmount > 5000 {
-            print("Can not launch BrainBlocks Payment. Invalid Payment Amount. Max Payment Amount: 5000 rai. Attempted Amount: \(convertAmount)")
-            return BrainBlocksPayment()
-        }
-        
-        BrainBlocksPayment.paymentdestination = destination
-        BrainBlocksPayment.paymentAmount = convertAmount
-        brainBlocksStartSession(paymentAmount: convertAmount, paymentDestination: destination)
-        
-        let paymentViewController = PaymentViewController.instantiate()
-        paymentViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        paymentViewController.modalPresentationStyle = .overCurrentContext
-        
-        contentview.present(paymentViewController, animated: true, completion: nil)
         
         return self
     }
