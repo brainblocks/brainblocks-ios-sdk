@@ -39,7 +39,8 @@ public class BrainBlocksPayment: UIViewController {
     
     // launch payment UI
     @discardableResult
-    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentAmount amount: Int, paymentDestination destination: String) -> BrainBlocksPayment {
+    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentAmount amount: Double, paymentDestination destination: String) -> BrainBlocksPayment {
+        var convertAmount: Int = 0
         
         if destination.validAddress() == false {
             print("Can not launch BrainBlocks Payment. Invalid Destination Address.")
@@ -49,11 +50,20 @@ public class BrainBlocksPayment: UIViewController {
         if amount == 0 {
             print("Can not launch BrainBlocks Payment. Missing Amount")
             return BrainBlocksPayment()
+        } else {
+            convertToRai(currency: currency, amount: amount, completionHandler: { (value) in
+                convertAmount = value
+            })
+        }
+        
+        if convertAmount > 5000 {
+            print("Can not launch BrainBlocks Payment. Invalid Payment Amount. Max Payment Amount: 5000 rai. Attempted Amount: \(convertAmount)")
+            return BrainBlocksPayment()
         }
         
         BrainBlocksPayment.paymentdestination = destination
-        BrainBlocksPayment.paymentAmount = amount
-        brainBlocksStartSession(paymentAmount: amount, paymentDestination: destination)
+        BrainBlocksPayment.paymentAmount = convertAmount
+        brainBlocksStartSession(paymentAmount: convertAmount, paymentDestination: destination)
         
         let paymentViewController = PaymentViewController.instantiate()
         paymentViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
