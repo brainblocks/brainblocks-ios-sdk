@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Alamofire
 
-enum Currencies: String {
+public enum Currencies: String {
     case AUD = "AUD"
     case BRL = "BRL"
     case CAD = "CAD"
@@ -40,33 +41,23 @@ enum Currencies: String {
     case TRY = "TRY"
     case TWD = "TWD"
     case ZAR = "ZAR"
+    case XRB = "XRB"
 }
 
-//[
-//    {
-//        "id": "raiblocks",
-//        "name": "RaiBlocks",
-//        "symbol": "XRB",
-//        "rank": "20",
-//        "price_usd": "17.5338",
-//        "price_btc": "0.00152916",
-//        "24h_volume_usd": "20950700.0",
-//        "market_cap_usd": "2336348854.0",
-//        "available_supply": "133248289.0",
-//        "total_supply": "133248289.0",
-//        "max_supply": "133248290.0",
-//        "percent_change_1h": "-2.5",
-//        "percent_change_24h": "-0.8",
-//        "percent_change_7d": "-30.13",
-//        "last_updated": "1516328052",
-//        "price_eur": "14.3239223016",
-//        "24h_volume_eur": "17115297.2524",
-//        "market_cap_eur": "1908638142.0"
-//    }
-//]
-
-func currentPrice(currency: Currencies) {
+// converts supplied currency with current
+public func convertToRai(currency: Currencies, amount: Double) -> Int {
+    var rai: Int = 0
+    if currency == .XRB {
+        rai = Int((amount * 1000.0))
+        return rai
+    }
     
+    Alamofire.request("https://brainblocks.io/api/exchange/\(currency.rawValue)/\(amount)/rai", method: .get).responseJSON { response in
+        if let resultJSON = response.result.value as? [String : AnyObject]! {
+            // pull token from result json
+            rai = resultJSON["rai"] as! Int
+        }
+    }
     
-    //https://api.coinmarketcap.com/v1/ticker/raiblocks/?convert=EUR
+    return rai
 }

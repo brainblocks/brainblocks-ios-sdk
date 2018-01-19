@@ -16,6 +16,7 @@
 		32BD6DA4200EF230001CEC39 /* BrainBlocksPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BD6DA3200EF230001CEC39 /* BrainBlocksPayment.swift */; };
 		32BD6DA7200EF74C001CEC39 /* Raiblocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 32BD6DA6200EF74C001CEC39 /* Raiblocks.png */; };
 		32C51F0F201193C700576B06 /* BrainBlocksKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */; };
+		32C51F112011948600576B06 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 32C51F102011948600576B06 /* README.md */; };
 		32E6E1E120103FCA0075D296 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6E1E020103FCA0075D296 /* Extensions.swift */; };
 		32E6E1E5201057790075D296 /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E6E1DE20103E5A0075D296 /* Payment.storyboard */; };
 		58CF7D678936694B2F28038F /* Pods_BrainBlocksKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610F2E95469D2E44D9B8BC20 /* Pods_BrainBlocksKitTests.framework */; };
@@ -43,6 +44,7 @@
 		32BD6DA3200EF230001CEC39 /* BrainBlocksPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBlocksPayment.swift; sourceTree = "<group>"; };
 		32BD6DA6200EF74C001CEC39 /* Raiblocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Raiblocks.png; sourceTree = "<group>"; };
 		32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BrainBlocksKit.podspec; sourceTree = SOURCE_ROOT; };
+		32C51F102011948600576B06 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		32E6E1DE20103E5A0075D296 /* Payment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payment.storyboard; sourceTree = "<group>"; };
 		32E6E1E020103FCA0075D296 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		610F2E95469D2E44D9B8BC20 /* Pods_BrainBlocksKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainBlocksKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				32BD6DA6200EF74C001CEC39 /* Raiblocks.png */,
 				32A93F6E201190170056CC88 /* ConvertXRB.swift */,
 				32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */,
+				32C51F102011948600576B06 /* README.md */,
 			);
 			path = BrainBlocksKit;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			files = (
 				32C51F0F201193C700576B06 /* BrainBlocksKit.podspec in Resources */,
 				32E6E1E5201057790075D296 /* Payment.storyboard in Resources */,
+				32C51F112011948600576B06 /* README.md in Resources */,
 				32BD6DA7200EF74C001CEC39 /* Raiblocks.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
