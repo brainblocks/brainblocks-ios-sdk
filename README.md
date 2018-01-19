@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     // Example Function
     func showPayment() {
         // payment rai amount - rai: 0.001 per 1 xrb
+        // current payment amount max cap - 5.0 xrb / 5000 rai
         var amount: Int = 1 
         let paymentAccount: String = "<Your XRB Payment Address Here>"
         
@@ -163,3 +164,9 @@ NotificationCenter.default.addObserver(self, selector: #selector(insufficientPay
     print("session insufficient payment")
 }
 ```
+
+## Donate 
+
+Donate to schenkty (contributor): xrb_1jnatu97dka1h49zudxtpxxrho3j591jwu5bzsn7h1kzn3gwit4kejak756y
+
+Donate to BrainBlocks: xrb_164xaa1ojy6qmq9e8t94mz8izr4mkf1sojb6xrmstru5jsif48g5kegcqg7y
