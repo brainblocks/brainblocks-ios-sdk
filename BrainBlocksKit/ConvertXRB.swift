@@ -12,56 +12,62 @@ import Alamofire
 public extension BrainBlocksPayment {
     
     enum Currencies: String {
-        case AUD = "AUD"
-        case BRL = "BRL"
-        case CAD = "CAD"
-        case CHF = "CHF"
-        case LP = "LP"
-        case CNY = "CNY"
-        case CZK = "CZK"
-        case DKK = "DKK"
-        case EUR = "EUR"
-        case GBP = "GBP"
-        case HKD = "HKD"
-        case HUF = "HUF"
-        case IDR = "IDR"
-        case ILS = "ILS"
-        case INR = "INR"
-        case JPY = "JPY"
-        case KRW = "KRW"
-        case MXN = "MXN"
-        case MYR = "MYR"
-        case NOK = "NOK"
-        case NZD = "NZD"
-        case PHP = "PHP"
-        case PKR = "PKR"
-        case PLN = "PLN"
-        case RUB = "RUB"
-        case SEK = "SEK"
-        case SGD = "SGD"
-        case THB = "THB"
-        case TRY = "TRY"
-        case TWD = "TWD"
-        case ZAR = "ZAR"
-        case XRB = "XRB"
-        case USD = "USD"
+        case aud = "aud"
+        case brl = "brl"
+        case cad = "cad"
+        case chf = "chf"
+        case clp = "clp"
+        case cny = "cny"
+        case czk = "czk"
+        case dkk = "dkk"
+        case eur = "eur"
+        case gbp = "gbp"
+        case hkd = "hkd"
+        case huf = "hur"
+        case idr = "idr"
+        case ils = "ils"
+        case inr = "inr"
+        case jpy = "jpy"
+        case krw = "krw"
+        case mxn = "mxn"
+        case myr = "myr"
+        case nok = "nok"
+        case nzd = "nzd"
+        case php = "php"
+        case pkr = "pkr"
+        case pln = "pln"
+        case rub = "rub"
+        case sek = "sek"
+        case sgd = "sgd"
+        case thb = "thb"
+        case TRY = "try"
+        case usd = "usd"
+        case twd = "twd"
+        case zar = "zar"
+        case xrb = "xrb"
     }
     
     // converts supplied currency with current
-    func convertToRai(currency: Currencies, amount: Double) -> Int {
-        var rai: Int = 0
-        if currency == .XRB {
+    func convertToRai(currency: Currencies, amount: Double, completionHandler: @escaping (Int) -> ()) {
+        var rai = Int()
+        
+        // if xrb - calc local instead and avoid network request
+        if currency == .xrb {
             rai = Int((amount * 1000.0))
-            return rai
+            completionHandler(rai)
+            return
         }
         
-        Alamofire.request("https://brainblocks.io/api/exchange/\(currency.rawValue)/\(amount)/rai", method: .get).responseJSON { response in
+        let url = "https://brainblocks.io/api/exchange/\(currency.rawValue)/\(amount)/rai"
+        
+        Alamofire.request(url, method: .get).responseJSON { response in
             if let resultJSON = response.result.value as? [String : AnyObject]! {
                 // pull token from result json
                 rai = resultJSON["rai"] as! Int
+                completionHandler(rai)
+            } else {
+                completionHandler(0)
             }
         }
-        
-        return rai
     }
 }
