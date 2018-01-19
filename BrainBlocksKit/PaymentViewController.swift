@@ -28,7 +28,7 @@ public class PaymentViewController: UIViewController {
     var qrSet: Bool = false
     
     var amount: Double {
-        return Double(round(Double(BrainBlocksPayment.paymentAmount)) / 1000)
+        return Double(round(Double(BrainBlocksPayment.paymentAmount)) / 1000000)
     }
     
     public override func viewDidLoad() {
