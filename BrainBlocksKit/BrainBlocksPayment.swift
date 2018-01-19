@@ -153,7 +153,6 @@ public class BrainBlocksPayment: UIViewController {
                 let token = resultJSON["token"] as! String
                 let fulfilled = resultJSON["fulfilled"] as! Bool
                 
-                print("full: \(fulfilled)")
                 // make sure token and received amounts are correct
                 if token == token && fulfilled {
         
