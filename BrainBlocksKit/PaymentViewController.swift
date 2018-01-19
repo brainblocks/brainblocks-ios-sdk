@@ -27,6 +27,10 @@ public class PaymentViewController: UIViewController {
     var progressValue: Float = 1.0
     var qrSet: Bool = false
     
+    var amount: Double {
+        return Double(round(Double(BrainBlocksPayment.paymentAmount)) / 1000)
+    }
+    
     public override func viewDidLoad() {
         // listen for BrainBlocksSessionStart notification
         NotificationCenter.default.addObserver(self, selector: #selector(startTimer), name: NSNotification.Name(rawValue: "BrainBlocksSessionStart"), object: nil)
