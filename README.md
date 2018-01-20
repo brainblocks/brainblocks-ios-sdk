@@ -21,7 +21,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-  pod 'BrainBlocksKit', :git => 'https://github.com/brainblocks/brainblocks-ios-sdk.git', :tag => 'v0.0.3'
+  pod 'BrainBlocksKit', :git => 'https://github.com/brainblocks/brainblocks-ios-sdk.git', :tag => 'v0.0.4'
 end
 ```
 
