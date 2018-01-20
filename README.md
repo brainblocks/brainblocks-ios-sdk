@@ -21,7 +21,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-  pod 'BrainBlocksKit', :git => 'https://github.com/brainblocks/brainblocks-ios-sdk.git', :tag => 'v0.0.1'
+  pod 'BrainBlocksKit', :git => 'https://github.com/brainblocks/brainblocks-ios-sdk.git', :tag => 'v0.0.3'
 end
 ```
 
@@ -48,8 +48,7 @@ class ViewController: UIViewController {
     
     // Example Function
     func showPayment() {
-        // payment rai amount - rai: 0.001 per 1 xrb
-        // current payment amount max cap - 5.0 xrb / 5000 rai
+        // payment rai amount. rai = 1xrb/1000000
         var amount: Int = 1 
         let paymentAccount: String = "<Your XRB Payment Address Here>"
         
