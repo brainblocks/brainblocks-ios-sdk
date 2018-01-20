@@ -16,9 +16,17 @@ public class BrainBlocksPayment: UIViewController {
     
     static let sessionURL = "https://brainblocks.io/api/session"
     static var afManager : SessionManager!
+    
+    // payment session amount
     static var paymentAmount = 0
+    
+    // where payment will be sent after verify
     static var paymentdestination = ""
+    
+    // temp payment session tokens
     static var token: String = ""
+    
+    // temp account for payment
     static var account: String = ""
     var strongSelf: BrainBlocksPayment?
     
@@ -38,8 +46,7 @@ public class BrainBlocksPayment: UIViewController {
     
     
     // launch payment UI
-    @discardableResult
-    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentAmount amount: Double, paymentDestination destination: String) -> BrainBlocksPayment {
+    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentAmount amount: Double, paymentDestination destination: String) {
         var convertAmount: Int = 0
         
         convertToRai(currency: currency, amount: amount, completionHandler: { (value) in
@@ -48,14 +55,12 @@ public class BrainBlocksPayment: UIViewController {
             // after convertAmount is pulled. finish function
             if destination.validAddress() == false {
                 print("Can not launch BrainBlocks Payment. Invalid Destination Address.")
+                return
             }
             
             if amount == 0 {
                 print("Can not launch BrainBlocks Payment. Missing Amount")
-            }
-            
-            if convertAmount > 5000 {
-                print("Can not launch BrainBlocks Payment. Invalid Payment Amount. Max Payment Amount: 5000 rai. Attempted Amount: \(convertAmount)")
+                return
             }
             
             BrainBlocksPayment.paymentdestination = destination
@@ -68,8 +73,6 @@ public class BrainBlocksPayment: UIViewController {
             
             contentview.present(paymentViewController, animated: true, completion: nil)
         })
-        
-        return self
     }
     
     // start brainblocks payment session

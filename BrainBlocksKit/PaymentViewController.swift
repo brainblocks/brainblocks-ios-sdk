@@ -11,8 +11,8 @@ import QRCode
 
 public class PaymentViewController: UIViewController {
     
+    @IBOutlet weak var copyAddress: UIView!
     @IBOutlet weak var paymentUI: UIView!
-    @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
@@ -20,6 +20,7 @@ public class PaymentViewController: UIViewController {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var raiblocksButton: UIButton!
+    @IBOutlet weak var QRButton: UIButton!
     
     let brainBlocksManager = BrainBlocksPayment()
     var countdownTimer: Timer!
@@ -61,6 +62,7 @@ public class PaymentViewController: UIViewController {
         timerLabel.isHidden = true
         progressBar.isHidden = true
         cancelButton.isHidden = true
+        copyAddress.isHidden = true
         indicator.startAnimating()
         indicator.isHidden = false
     }
@@ -68,13 +70,13 @@ public class PaymentViewController: UIViewController {
     @objc func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
-        let when = DispatchTime.now() + 1.2 // wait for countdown to start
+        let when = DispatchTime.now() + 0.1 // wait for countdown to start
         DispatchQueue.main.asyncAfter(deadline: when) {
             // set qr code
             self.indicator.stopAnimating()
             self.indicator.isHidden = true
             let qrCode = QRCode(BrainBlocksPayment.account)
-            self.qrCodeImageView.image = qrCode?.image
+            self.QRButton.setImage(qrCode?.image, for: .normal)
             self.accountLabel.text = BrainBlocksPayment.account
             self.accountLabel.isHidden = false
             self.qrSet = true
@@ -108,12 +110,28 @@ public class PaymentViewController: UIViewController {
         progressBar.isHidden = true
         accountLabel.text = ""
         accountLabel.text = ""
-        qrCodeImageView.image = UIImage()
+        QRButton.setImage(UIImage(), for: .normal)
         indicator.stopAnimating()
         progressValue = 1.0
         qrSet = false
         countdownTimer.invalidate()
     }
+    
+    @IBAction func copyQRCode(_ sender: UIButton) {
+        // show copy address
+        copyAddress.isHidden = false
+        
+        // copy to clipboard
+        UIPasteboard.general.string = BrainBlocksPayment.account
+        
+        // wait 3.5 seconds then hide again
+        let when = DispatchTime.now() + 3.5
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            // hide copy view
+            self.copyAddress.isHidden = true
+        }
+    }
+    
     
     // cancel payment and reset everything for another session
     @IBAction func cancelPayment() {
@@ -122,7 +140,7 @@ public class PaymentViewController: UIViewController {
         progressBar.isHidden = true
         accountLabel.text = ""
         accountLabel.text = ""
-        qrCodeImageView.image = UIImage()
+        QRButton.setImage(UIImage(), for: .normal)
         indicator.stopAnimating()
         progressValue = 1.0
         qrSet = false
