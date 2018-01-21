@@ -27,6 +27,7 @@ public class PaymentViewController: UIViewController {
     var totalTime = 120
     var progressValue: Float = 1.0
     var qrSet: Bool = false
+    var qrURL = ""
     
     var amount: Double {
         return Double(round(Double(BrainBlocksPayment.paymentAmount)) / 1000000)
@@ -63,6 +64,7 @@ public class PaymentViewController: UIViewController {
         progressBar.isHidden = true
         cancelButton.isHidden = true
         copyAddress.isHidden = true
+        copyAddress.alpha = 0.0
         indicator.startAnimating()
         indicator.isHidden = false
     }
@@ -75,8 +77,13 @@ public class PaymentViewController: UIViewController {
             // set qr code
             self.indicator.stopAnimating()
             self.indicator.isHidden = true
-            let qrCode = QRCode(BrainBlocksPayment.account)
+            
+            // setup qrURL
+            self.qrURL = "xrb:\(BrainBlocksPayment.account)?amount=\(BrainBlocksPayment.paymentAmount)"
+            let qrCode = QRCode(self.qrURL)
             self.QRButton.setImage(qrCode?.image, for: .normal)
+            
+            // setup everything else
             self.accountLabel.text = BrainBlocksPayment.account
             self.accountLabel.isHidden = false
             self.qrSet = true
@@ -118,17 +125,25 @@ public class PaymentViewController: UIViewController {
     }
     
     @IBAction func copyQRCode(_ sender: UIButton) {
-        // show copy address
-        copyAddress.isHidden = false
-        
-        // copy to clipboard
+        // copy address to clipboard
         UIPasteboard.general.string = BrainBlocksPayment.account
+        
+        // show copy address with fade in
+        copyAddress.isHidden = false
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            self.copyAddress.alpha = 1.0
+        }, completion: nil)
         
         // wait 3.5 seconds then hide again
         let when = DispatchTime.now() + 3.5
         DispatchQueue.main.asyncAfter(deadline: when) {
             // hide copy view
-            self.copyAddress.isHidden = true
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                self.copyAddress.alpha = 0.0
+            }, completion:  {
+                (value: Bool) in
+                self.copyAddress.isHidden = true
+            })
         }
     }
     

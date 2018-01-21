@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKv-AW-gTy" userLabel="Payment View">
                                 <rect key="frame" x="37" y="183" width="300" height="300"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xrb_1jnatu97dka1h49zudxtpxxrho3j591jwu5bzsn7h1kzn3gwit4kejak756y" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2G-wc-V0Y" userLabel="Account Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xrb_1jnatu97dka1h49zudxtpxxrho3j591jwu5bzsn7h1kzn3gwit4kejak756y" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2G-wc-V0Y" userLabel="Account Label">
                                         <rect key="frame" x="20" y="165" width="260" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="iBu-vO-p2c"/>
@@ -121,23 +121,25 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MR-vs-cex" userLabel="Address Copied">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Copied" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjR-Xy-1JS">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <rect key="frame" x="0.0" y="20" width="375" height="40"/>
                                         <color key="backgroundColor" red="0.17931127845431083" green="0.80735038129973469" blue="0.12815130527140398" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="FX3-7h-Sjs"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.1793112785" green="0.80735038130000003" blue="0.12815130529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="UjR-Xy-1JS" secondAttribute="trailing" id="BhR-6a-jwj"/>
                                     <constraint firstAttribute="bottom" secondItem="UjR-Xy-1JS" secondAttribute="bottom" id="dx4-m1-yVQ"/>
-                                    <constraint firstAttribute="height" constant="40" id="idW-cK-FJT"/>
+                                    <constraint firstAttribute="height" constant="60" id="idW-cK-FJT"/>
                                     <constraint firstItem="UjR-Xy-1JS" firstAttribute="leading" secondItem="1MR-vs-cex" secondAttribute="leading" id="kVa-Su-U5K"/>
-                                    <constraint firstItem="UjR-Xy-1JS" firstAttribute="top" secondItem="1MR-vs-cex" secondAttribute="top" id="oDo-hY-EvK"/>
                                 </constraints>
                             </view>
                         </subviews>
