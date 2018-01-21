@@ -42,7 +42,7 @@
                                             </label>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTF-wR-bBu">
                                                 <rect key="frame" x="151" y="0.0" width="149" height="40"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <state key="normal" title=" RaiBlocks" image="Raiblocks.png">
                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -160,6 +160,7 @@
                         <outlet property="cancelButton" destination="hiQ-2R-4iZ" id="dAZ-eA-0ki"/>
                         <outlet property="copyAddress" destination="1MR-vs-cex" id="ETM-RA-x16"/>
                         <outlet property="indicator" destination="cN2-QP-0pG" id="JuT-iW-5yS"/>
+                        <outlet property="mainView" destination="7bN-di-EJS" id="k1m-vE-NWF"/>
                         <outlet property="paymentUI" destination="gKv-AW-gTy" id="Roc-yI-yYG"/>
                         <outlet property="progressBar" destination="oQ3-AD-krQ" id="WPo-t4-YCf"/>
                         <outlet property="raiblocksButton" destination="ZTF-wR-bBu" id="xiX-gW-zc4"/>

@@ -11,6 +11,7 @@ import QRCode
 
 public class PaymentViewController: UIViewController {
     
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var copyAddress: UIView!
     @IBOutlet weak var paymentUI: UIView!
     @IBOutlet weak var progressBar: UIProgressView!
@@ -67,6 +68,11 @@ public class PaymentViewController: UIViewController {
         copyAddress.alpha = 0.0
         indicator.startAnimating()
         indicator.isHidden = false
+        
+        mainView.alpha = 0.0
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            self.mainView.alpha = 1.0
+        }, completion: nil)
     }
     
     @objc func startTimer() {
@@ -168,12 +174,12 @@ public class PaymentViewController: UIViewController {
     }
     
     @objc func dismissPaymentView() {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.paymentUI.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.paymentUI.alpha = 0.0;
+        // dismiss main view
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.mainView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.mainView.alpha = 0.0;
         }, completion:{(finished : Bool)  in
-            if (finished)
-            {
+            if (finished) {
                 self.dismiss(animated: true, completion: nil)
             }
         })

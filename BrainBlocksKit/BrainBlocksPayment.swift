@@ -44,7 +44,6 @@ public class BrainBlocksPayment: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // launch payment UI
     open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentAmount amount: Double, paymentDestination destination: String) {
         var convertAmount: Int = 0
