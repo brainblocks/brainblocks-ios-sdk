@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BrainBlocksKit"
-  s.version      = "0.0.5"
+  s.version      = "0.0.4"
   s.summary      = "A Payment Framework for Raiblocks."
 
   s.description  = "The BrainBlocksKit is a complete payment framework that can be used in any iOS app to accept Raiblocks."
