@@ -13,15 +13,17 @@ iOS SDK for integrating [BrainBlocks](http://BrainBlocks.io) into a mobile app
 ```bash
 $ gem install cocoapods
 ```
+> CocoaPods 1.1+ is required to build Alamofire 4.0+.
 
 To integrate BrainBlocks into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-  pod 'BrainBlocksKit', :git => 'https://github.com/brainblocks/brainblocks-ios-sdk.git', :tag => 'v0.0.4'
+  pod 'BrainBlocksKit'
 end
 ```
 
