@@ -8,6 +8,7 @@
 
 import UIKit
 import QRCode
+import WebKit
 
 public class PaymentViewController: UIViewController {
     
@@ -73,6 +74,14 @@ public class PaymentViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.mainView.alpha = 1.0
         }, completion: nil)
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
     }
     
     @objc func startTimer() {
@@ -171,6 +180,12 @@ public class PaymentViewController: UIViewController {
         brainBlocksManager.cancelBrainBlocksPaymentSession()
         dismissPaymentView()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionCancelled"), object: nil)
+    }
+    
+    @IBAction func actionButton(_ sender: UIButton) {
+        let url = URL(string: "https://raiwallet.com")
+        
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
     }
     
     @objc func dismissPaymentView() {

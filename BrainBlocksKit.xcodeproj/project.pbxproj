@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29A58A2EFD7F5FBCCD8B7E2C /* Pods_BrainBlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9937D60EC7B1C851BF09C0CE /* Pods_BrainBlocksKit.framework */; };
+		32029A2A2014722200F348F4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32029A292014722200F348F4 /* WebViewController.swift */; };
 		320AE929200F2E16004E0D87 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320AE928200F2E16004E0D87 /* PaymentViewController.swift */; };
 		321030F5200EEE67009B40C7 /* BrainBlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 321030EB200EEE67009B40C7 /* BrainBlocksKit.framework */; };
 		321030FA200EEE67009B40C7 /* BrainBlocksKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321030F9200EEE67009B40C7 /* BrainBlocksKitTests.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32029A292014722200F348F4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		320AE928200F2E16004E0D87 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		321030EB200EEE67009B40C7 /* BrainBlocksKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BrainBlocksKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		321030EE200EEE67009B40C7 /* BrainBlocksKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrainBlocksKit.h; sourceTree = "<group>"; };
@@ -110,12 +112,13 @@
 			children = (
 				32BD6DA3200EF230001CEC39 /* BrainBlocksPayment.swift */,
 				320AE928200F2E16004E0D87 /* PaymentViewController.swift */,
+				32029A292014722200F348F4 /* WebViewController.swift */,
 				32E6E1E020103FCA0075D296 /* Extensions.swift */,
+				32A93F6E201190170056CC88 /* ConvertXRB.swift */,
 				321030EE200EEE67009B40C7 /* BrainBlocksKit.h */,
 				321030EF200EEE67009B40C7 /* Info.plist */,
 				32E6E1DE20103E5A0075D296 /* Payment.storyboard */,
 				32BD6DA6200EF74C001CEC39 /* Raiblocks.png */,
-				32A93F6E201190170056CC88 /* ConvertXRB.swift */,
 				32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */,
 				32C51F102011948600576B06 /* README.md */,
 			);
@@ -354,6 +357,7 @@
 				32A93F6F201190170056CC88 /* ConvertXRB.swift in Sources */,
 				320AE929200F2E16004E0D87 /* PaymentViewController.swift in Sources */,
 				32E6E1E120103FCA0075D296 /* Extensions.swift in Sources */,
+				32029A2A2014722200F348F4 /* WebViewController.swift in Sources */,
 				32BD6DA4200EF230001CEC39 /* BrainBlocksPayment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,7 +508,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BrainBlocksKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brainblocks.BrainBlocksKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -530,7 +534,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BrainBlocksKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brainblocks.BrainBlocksKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

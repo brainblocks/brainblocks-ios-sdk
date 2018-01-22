@@ -59,7 +59,6 @@ public extension BrainBlocksPayment {
         }
         
         let url = "https://brainblocks.io/api/exchange/\(currency.rawValue)/\(amount)/rai"
-        print(url)
         
         Alamofire.request(url, method: .get).responseJSON { response in
             if let resultJSON = response.result.value as? [String : AnyObject]! {

@@ -108,7 +108,9 @@ public class BrainBlocksPayment: UIViewController {
                 case "success":
                     // set current token for future usage
                     print("BrainBlocks Session Started")
-                    print("BrainBlocks Session Account: \(BrainBlocksPayment.account)")
+                    
+                    // MARK: DEBUG ONLY! Do not release with this enabled
+                    //print("BrainBlocks Session Account: \(BrainBlocksPayment.account)")
                     
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStart"), object: nil)
                     self.brainBlocksTransferPayment(token: BrainBlocksPayment.token)
