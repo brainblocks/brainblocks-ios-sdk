@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "11.0"
 
-  s.source       = { :git => "https://github.com/brainblocks/brainblocks-ios-sdk.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/brainblocks/brainblocks-ios-sdk.git", :tag => "v#{s.version}" }
 
   s.source_files  = "BrainBlocksKit", "BrainBlocksKit/**/*.{h,m,swift}"
 
