@@ -1,6 +1,8 @@
 # brainblocks-ios-sdk
 iOS SDK for integrating [BrainBlocks](http://BrainBlocks.io) into a mobile app
 
+[SDK Video Demo](https://www.youtube.com/watch?v=LlhImlhOeyQ)
+
 ![demo](./img/demo.png)
 
 
