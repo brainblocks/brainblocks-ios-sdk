@@ -11,7 +11,7 @@ import Alamofire
 
 public extension BrainBlocksPayment {
     
-    enum Currencies: String {
+    public enum Currencies: String {
         case aud = "aud"
         case brl = "brl"
         case cad = "cad"
