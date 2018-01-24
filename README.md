@@ -1,6 +1,8 @@
 # brainblocks-ios-sdk
 iOS SDK for integrating [BrainBlocks](http://BrainBlocks.io) into a mobile app
 
+[SDK Video Demo](https://www.youtube.com/watch?v=LlhImlhOeyQ)
+
 ![demo](./img/demo.png)
 
 
@@ -13,15 +15,17 @@ iOS SDK for integrating [BrainBlocks](http://BrainBlocks.io) into a mobile app
 ```bash
 $ gem install cocoapods
 ```
+> CocoaPods 1.4+ is required to build BrainBlocksKit.
 
 To integrate BrainBlocks into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '11.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-  pod 'BrainBlocksKit', :git => 'https://github.com/brainblocks/brainblocks-ios-sdk.git', :tag => 'v0.0.4'
+  pod 'BrainBlocksKit'
 end
 ```
 
