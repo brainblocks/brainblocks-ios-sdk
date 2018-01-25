@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -172,73 +173,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UyD-Q8-8PI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="66" y="70"/>
-        </scene>
-        <!--Web View Controller-->
-        <scene sceneID="XDK-8b-ceU">
-            <objects>
-                <viewController storyboardIdentifier="web" id="knA-Ze-VQG" customClass="WebViewController" customModule="BrainBlocksKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XkH-q9-y0J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qY-Ot-hlw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsPictureInPictureMediaPlayback="NO">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smt-Q7-LiT" userLabel="Top Bar">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="kno-TF-qi6"/>
-                                </constraints>
-                            </view>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3U-vx-rGc">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </textAttributes>
-                                <textAttributes key="largeTitleTextAttributes">
-                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="RaiWallet" id="EJB-WX-f8y">
-                                        <barButtonItem key="leftBarButtonItem" title="Close" id="TQI-qC-Arp">
-                                            <connections>
-                                                <action selector="closeButton:" destination="knA-Ze-VQG" id="IW3-jG-id9"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="sKC-Ww-mCi" firstAttribute="trailing" secondItem="8qY-Ot-hlw" secondAttribute="trailing" id="0ST-uN-cQJ"/>
-                            <constraint firstItem="C3U-vx-rGc" firstAttribute="trailing" secondItem="sKC-Ww-mCi" secondAttribute="trailing" id="23b-dN-GY5"/>
-                            <constraint firstItem="sKC-Ww-mCi" firstAttribute="bottom" secondItem="8qY-Ot-hlw" secondAttribute="bottom" id="2wY-eb-7Ve"/>
-                            <constraint firstItem="8qY-Ot-hlw" firstAttribute="top" secondItem="C3U-vx-rGc" secondAttribute="bottom" id="M9p-kZ-gNb"/>
-                            <constraint firstItem="sKC-Ww-mCi" firstAttribute="trailing" secondItem="smt-Q7-LiT" secondAttribute="trailing" id="XMt-gj-TYG"/>
-                            <constraint firstItem="smt-Q7-LiT" firstAttribute="top" secondItem="XkH-q9-y0J" secondAttribute="top" id="ZOS-f1-UyW"/>
-                            <constraint firstItem="C3U-vx-rGc" firstAttribute="leading" secondItem="sKC-Ww-mCi" secondAttribute="leading" id="ip2-WJ-n2c"/>
-                            <constraint firstItem="smt-Q7-LiT" firstAttribute="leading" secondItem="XkH-q9-y0J" secondAttribute="leading" id="jLM-VF-OEp"/>
-                            <constraint firstItem="C3U-vx-rGc" firstAttribute="top" secondItem="sKC-Ww-mCi" secondAttribute="top" id="mJY-Ni-eTQ"/>
-                            <constraint firstItem="8qY-Ot-hlw" firstAttribute="leading" secondItem="sKC-Ww-mCi" secondAttribute="leading" id="yjf-XC-udZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="sKC-Ww-mCi"/>
-                    </view>
-                    <connections>
-                        <outlet property="webView" destination="8qY-Ot-hlw" id="lyg-ZS-5Wd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K65-MZ-AHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="760.79999999999995" y="69.715142428785612"/>
         </scene>
     </scenes>
     <resources>

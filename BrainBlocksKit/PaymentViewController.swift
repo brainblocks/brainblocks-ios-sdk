@@ -183,8 +183,7 @@ public class PaymentViewController: UIViewController {
     }
     
     @IBAction func actionButton(_ sender: UIButton) {
-        let url = URL(string: "https://raiwallet.com")
-        
+        let url = URL(string: "https://raiblocks.net")
         UIApplication.shared.open(url!, options: [:], completionHandler: nil)
     }
     

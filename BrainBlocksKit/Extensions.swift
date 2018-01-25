@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 extension String {
     func validAddress() -> Bool {
@@ -17,5 +18,12 @@ extension String {
             // Not Valid Raiblocks Address
             return false
         }
+    }
+}
+
+// MARK: Check Network
+class Connectivity {
+    class var isConnectedToInternet:Bool {
+        return NetworkReachabilityManager()!.isReachable
     }
 }

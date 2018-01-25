@@ -46,6 +46,13 @@ public class BrainBlocksPayment: UIViewController {
     
     // launch payment UI
     open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentAmount amount: Double, paymentDestination destination: String) {
+
+        // Check for Internet
+        if !Connectivity.isConnectedToInternet {
+            print("No Connection")
+            return
+        }
+        
         var convertAmount: Int = 0
         
         convertToRai(currency: currency, amount: amount, completionHandler: { (value) in
@@ -76,6 +83,12 @@ public class BrainBlocksPayment: UIViewController {
     
     // start brainblocks payment session
     open func brainBlocksStartSession(paymentAmount amount: Int, paymentDestination destination: String) {
+
+        // Check for Internet
+        if !Connectivity.isConnectedToInternet {
+            print("No Connection")
+            return
+        }
         
         if destination.validAddress() == false {
             print("Can not launch BrainBlocks Payment Session. Invalid Destination Address.")
@@ -125,6 +138,12 @@ public class BrainBlocksPayment: UIViewController {
     
     // start brainblocks transfer session for payment
     open func brainBlocksTransferPayment(token: String) {
+    
+        // Check for Internet
+        if !Connectivity.isConnectedToInternet {
+            print("No Connection")
+            return
+        }
         
         // config alamofire session to prevent transfer timeouts
         let configuration = URLSessionConfiguration.default
@@ -158,6 +177,12 @@ public class BrainBlocksPayment: UIViewController {
     }
     
     open func brainBlocksVerifyPayment(token: String) {
+        // Check for Internet
+        if !Connectivity.isConnectedToInternet {
+            print("No Connection")
+            return
+        }
+        
         Alamofire.request("\(BrainBlocksPayment.sessionURL)/\(token)/verify", method: .get).responseJSON { response in
             if let resultJSON = response.result.value as? [String : AnyObject]! {
                 
