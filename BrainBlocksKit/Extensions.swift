@@ -21,6 +21,24 @@ extension String {
     }
 }
 
+func processAddress(url: String, completionHandler: @escaping (String) -> ()) {
+    var address: String = url
+    
+    // strip after ?
+    if let urlRange = address.range(of:"?") {
+        address.removeSubrange(urlRange.lowerBound..<address.endIndex)
+    }
+    
+    address = address.replacingOccurrences(of: "xrb:", with: "")
+    
+    if address.validAddress() {
+        completionHandler(address)
+    } else {
+        completionHandler("")
+        print("Address processing error")
+    }
+}
+
 // MARK: Check Network
 class Connectivity {
     class var isConnectedToInternet:Bool {

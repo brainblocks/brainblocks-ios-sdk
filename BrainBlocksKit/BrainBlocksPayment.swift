@@ -52,14 +52,18 @@ public class BrainBlocksPayment: UIViewController {
             print("No Connection")
             return
         }
-        
+        var processedAddress: String = ""
         var convertAmount: Int = 0
-        
+            
+        processAddress(url: destination, completionHandler: { (address) in
+            processedAddress = address
+        })
+
         convertToRai(currency: currency, amount: amount, completionHandler: { (value) in
             convertAmount = value
             
             // after convertAmount is pulled. finish function
-            if destination.validAddress() == false {
+            if processedAddress.validAddress() == false {
                 print("Can not launch BrainBlocks Payment. Invalid Destination Address.")
                 return
             }
@@ -71,7 +75,7 @@ public class BrainBlocksPayment: UIViewController {
             
             BrainBlocksPayment.paymentdestination = destination
             BrainBlocksPayment.paymentAmount = convertAmount
-            self.brainBlocksStartSession(paymentAmount: convertAmount, paymentDestination: destination)
+            self.brainBlocksStartSession(paymentAmount: convertAmount, paymentDestination: processedAddress)
             
             let paymentViewController = PaymentViewController.instantiate()
             paymentViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
@@ -213,5 +217,4 @@ public class BrainBlocksPayment: UIViewController {
             }
         }
     }
-    
 }
