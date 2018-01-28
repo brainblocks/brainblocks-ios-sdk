@@ -11,6 +11,9 @@ import Alamofire
 
 public extension BrainBlocksPayment {
     
+    /**
+     Enum of supported Currencies in BrainBlocks
+    */
     public enum Currencies: String {
         case aud = "aud"
         case brl = "brl"
@@ -47,7 +50,15 @@ public extension BrainBlocksPayment {
         case xrb = "xrb"
     }
     
-    // converts supplied currency with current
+    /**
+     Converts supplied with rai
+     
+     - Parameters:
+     - Currency: Currency you are providing
+     - Amount: Amount of currency provided
+     
+     - Returns: Int rai amount
+     */
     func convertToRai(currency: Currencies, amount: Double, completionHandler: @escaping (Int) -> ()) {
         var rai = Int()
         

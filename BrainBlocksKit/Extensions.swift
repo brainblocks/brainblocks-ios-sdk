@@ -9,8 +9,14 @@
 import Foundation
 import Alamofire
 
-extension String {
-    func validAddress() -> Bool {
+
+public extension String {
+    /**
+    Check if address is a valid XRB address.
+
+    - Returns: Bool
+    */
+    public func validAddress() -> Bool {
         if self.range(of: "^xrb_[a-z0-9]{60}$", options: .regularExpression) != nil {
             // Valid Raiblocks Address
             return true
@@ -21,6 +27,9 @@ extension String {
     }
 }
 
+/**
+ Pulls address out of RaiBlocks url or QR Code
+*/
 func processAddress(url: String, completionHandler: @escaping (String) -> ()) {
     var address: String = url
     
