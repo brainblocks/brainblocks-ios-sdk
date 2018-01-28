@@ -21,7 +21,7 @@ To integrate BrainBlocks into your Xcode project using CocoaPods, specify it in 
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '11.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
@@ -52,8 +52,11 @@ class ViewController: UIViewController {
     
     // Example Function
     func showPayment() {
+    
         // payment rai amount. rai = 1xrb/1000000
-        var amount: Int = 1 
+        var amount: Int = 1
+        
+        // Follow the URL/QR standard here: https://github.com/clemahieu/raiblocks/wiki/URI-and-QR-Code-Standard
         let paymentAccount: String = "<Your XRB Payment Address Here>"
         
         // Launch BrainBlocks Popup Payment UI
@@ -64,7 +67,8 @@ class ViewController: UIViewController {
  
 ### Alternative Method
 
-The Following functions can also be used as an alternative to the simple popup ui. Do Not use these with popup ui
+The Following functions can also be used as an alternative to the simple popup ui.
+> warning: Do not use these functions with Popup UI. This method is also not supported.
 
 ```swift
 // start brainblocks payment session
