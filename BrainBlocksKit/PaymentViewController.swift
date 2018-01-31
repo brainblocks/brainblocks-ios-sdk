@@ -54,12 +54,12 @@ public class PaymentViewController: UIViewController {
         let bundle = Bundle(url: bundleURL!)
         
         //Pay 0.001 XRB
-        amountLabel.text = "Pay \(amount) XRB"
+        amountLabel.text = "Pay \(amount)"
         paymentUI.layer.cornerRadius = 10.0
         paymentUI.layer.masksToBounds = true
         cancelButton.layer.cornerRadius = 10.0
         cancelButton.layer.masksToBounds = true
-        raiblocksButton.setImage(UIImage(named: "Raiblocks.png", in: bundle, compatibleWith: nil), for: .normal)
+        raiblocksButton.setImage(UIImage(named: "Nano.png", in: bundle, compatibleWith: nil), for: .normal)
         accountLabel.isHidden = true
         progressBar.progress = progressValue
         timerLabel.isHidden = true
@@ -183,8 +183,22 @@ public class PaymentViewController: UIViewController {
     }
     
     @IBAction func actionButton(_ sender: UIButton) {
-        let url = URL(string: "https://raiblocks.net")
-        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        let url = URL(string: "https://nano.org")
+        
+        let alert = UIAlertController(title: "Visit Nano.org", message: "Are you sure you want to leave this app?", preferredStyle: .alert)
+        
+        let goAction = UIAlertAction(title: "Yes", style: .default) { (alert: UIAlertAction!) -> Void in
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
+            return
+        }
+        
+        alert.addAction(goAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion:nil)
     }
     
     @objc func dismissPaymentView() {

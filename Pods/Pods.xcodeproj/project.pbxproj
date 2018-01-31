@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -81,21 +81,21 @@
 		1DB92EDC068C7522EF165842C261F932 /* Pods-BrainBlocksKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BrainBlocksKit-acknowledgements.markdown"; sourceTree = "<group>"; };
 		211979E474B5E20ABE91EC1D17D9D843 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2562736A07C0134BAB3A74F9B602FCD3 /* Pods-BrainBlocksKitTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BrainBlocksKitTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2777D6DD2AD30F789BEAB4AD764B7D8C /* Pods-BrainBlocksKitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BrainBlocksKitTests.modulemap"; sourceTree = "<group>"; };
+		2777D6DD2AD30F789BEAB4AD764B7D8C /* Pods-BrainBlocksKitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BrainBlocksKitTests.modulemap"; sourceTree = "<group>"; };
 		2D65E67B0763D99E4124FDC4EFA9AD3B /* Pods-BrainBlocksKitTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BrainBlocksKitTests-frameworks.sh"; sourceTree = "<group>"; };
-		2E5930CF259A443B88EE10F28C632479 /* QRCode.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = QRCode.modulemap; sourceTree = "<group>"; };
+		2E5930CF259A443B88EE10F28C632479 /* QRCode.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = QRCode.modulemap; sourceTree = "<group>"; };
 		35BF069244B9646B0EFB7DF4321EED30 /* Pods-BrainBlocksKitTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BrainBlocksKitTests-dummy.m"; sourceTree = "<group>"; };
 		381BA3EF3010F0BB1955278FA165D324 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
 		387426BC79A874C56AF37B2EE2CCDFD3 /* CIImageExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CIImageExtension.swift; path = QRCode/CIImageExtension.swift; sourceTree = "<group>"; };
 		3969528476E436759BBF358F556384C7 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = QRCode/UIImageViewExtension.swift; sourceTree = "<group>"; };
 		3A08FC9115F14AE84751AB3FE376AC06 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		3A71F459CA63AD83B232E6DFE2637DC2 /* Pods-BrainBlocksKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BrainBlocksKitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		45EC8B5DCD44817CDA0C9E8E766C4A76 /* QRCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QRCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45EC8B5DCD44817CDA0C9E8E766C4A76 /* QRCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QRCode.framework; path = QRCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		523EADE2F4F6C016E395060C7EB5836F /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		5388756934D159A502A409A6DC404ECE /* QRCode-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCode-dummy.m"; sourceTree = "<group>"; };
 		56B4CF397DF12A3A9C8C85A5973231C7 /* Pods-BrainBlocksKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BrainBlocksKit-acknowledgements.plist"; sourceTree = "<group>"; };
 		5CD6DC34539EB90EF6E66962B3DDEC09 /* Pods-BrainBlocksKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BrainBlocksKit-dummy.m"; sourceTree = "<group>"; };
-		5F977111D430B1FF96948722D50AD444 /* Pods_BrainBlocksKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainBlocksKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F977111D430B1FF96948722D50AD444 /* Pods_BrainBlocksKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BrainBlocksKitTests.framework; path = "Pods-BrainBlocksKitTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		627C7F2344ACDAE2D023FB30FAC6B21A /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
 		65A4DB96A176889F8A148D5E54AB49A2 /* Pods-BrainBlocksKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BrainBlocksKit-umbrella.h"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -109,22 +109,22 @@
 		7AD1CB72657ECEC674ECB7081CC33369 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		8687EC4AF3DE30A8F46BDD5C81FF7A0B /* Pods-BrainBlocksKitTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BrainBlocksKitTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		91251391631E2D3707B6CB37020F8839 /* QRCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCode.swift; path = QRCode/QRCode.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96EC1C706D66C350448D39BB479B3F4B /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		9812BE4A3AC4B8684EA6577797F721DC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A75084B524CEBC5C2B160D4507FA835 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		9D002C6953BA2E41565314CE0C3960E2 /* QRCode-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCode-umbrella.h"; sourceTree = "<group>"; };
 		A013BD11012C2444ECF01CFC4824BD94 /* QRCode-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCode-prefix.pch"; sourceTree = "<group>"; };
-		AAE94C214D8C78D79FDDA8FE1D673999 /* Pods-BrainBlocksKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BrainBlocksKit.modulemap"; sourceTree = "<group>"; };
+		AAE94C214D8C78D79FDDA8FE1D673999 /* Pods-BrainBlocksKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BrainBlocksKit.modulemap"; sourceTree = "<group>"; };
 		B3A03F043D422D118AAD09F21A9C1884 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
-		BCB62E687C1F6B93BD0B3DA64F9463F8 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		BCB62E687C1F6B93BD0B3DA64F9463F8 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		C733997F27DDF97FD473D04EC685E9E6 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		C74C3BAA65084275F57B43EB21607853 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C74C3BAA65084275F57B43EB21607853 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E8469CFE5688852021B71E46180229 /* Pods-BrainBlocksKitTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BrainBlocksKitTests-umbrella.h"; sourceTree = "<group>"; };
 		CBE72B5E5D7D883E4D4AE10F82290409 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		D10B0455042BB3C111779908B23D32B6 /* Pods-BrainBlocksKitTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BrainBlocksKitTests-resources.sh"; sourceTree = "<group>"; };
 		D438EC0042355B34DA2A9D1B9FB07F43 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		DD3779928EC05819D4D2B2002AAF5E0E /* Pods_BrainBlocksKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainBlocksKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD3779928EC05819D4D2B2002AAF5E0E /* Pods_BrainBlocksKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BrainBlocksKit.framework; path = "Pods-BrainBlocksKit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB38E42CCA98AB9928159ED0EE9EF0B /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		E16B120715273B48325D029BCCE81DBE /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		E254BB3E22AB189416242AAD2F324621 /* Pods-BrainBlocksKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BrainBlocksKitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -261,6 +261,7 @@
 				381BA3EF3010F0BB1955278FA165D324 /* Validation.swift */,
 				C290876328D5F8048BED32CC65B82591 /* Support Files */,
 			);
+			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -323,6 +324,7 @@
 				3969528476E436759BBF358F556384C7 /* UIImageViewExtension.swift */,
 				3407834A597E3E5E88DE6DB2A04F6473 /* Support Files */,
 			);
+			name = QRCode;
 			path = QRCode;
 			sourceTree = "<group>";
 		};
