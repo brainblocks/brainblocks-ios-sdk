@@ -118,16 +118,13 @@ public class BrainBlocksPayment: UIViewController {
             if let tokenJSON = response.result.value as? [String : AnyObject]! {
                 
                 let status = tokenJSON["status"] as! String
-                BrainBlocksPayment.account = tokenJSON["account"] as! String
-                BrainBlocksPayment.token = tokenJSON["token"] as! String
                 
                 switch status {
                 case "success":
+                    BrainBlocksPayment.account = tokenJSON["account"] as! String
+                    BrainBlocksPayment.token = tokenJSON["token"] as! String
                     // set current token for future usage
                     print("BrainBlocks Session Started")
-                    
-                    // MARK: DEBUG ONLY! Do not release with this enabled
-                    //print("BrainBlocks Session Account: \(BrainBlocksPayment.account)")
                     
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStart"), object: nil)
                     self.brainBlocksTransferPayment(token: BrainBlocksPayment.token)
