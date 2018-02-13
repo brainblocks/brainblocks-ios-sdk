@@ -48,6 +48,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showPayment()
     }
     
     // Example Function
@@ -59,8 +60,11 @@ class ViewController: UIViewController {
         // Follow the URL/QR standard here: https://github.com/clemahieu/raiblocks/wiki/URI-and-QR-Code-Standard
         let paymentAccount: String = "<Your XRB Payment Address Here>"
         
+        //set time before session timeout. must be between 120-300 seconds
+        let sessionTime: Int = 200
+        
         // Launch BrainBlocks Popup Payment UI
-        BrainBlocksPayment().launchBrainBlocksPaymentView(viewController: self, paymentAmount: amount, paymentDestination: paymentAccount)
+        BrainBlocksPayment().launchBrainBlocksPaymentView(viewController: self, paymentCurrency: .xrb, paymentAmount: amount, paymentDestination: paymentAccount, sessionTime: sessionTime)
     }
  }
  ```

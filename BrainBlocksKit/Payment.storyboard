@@ -64,7 +64,7 @@
                                             <constraint firstAttribute="height" constant="40" id="iyE-0R-9NK"/>
                                         </constraints>
                                     </stackView>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oQ3-AD-krQ">
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.0033" translatesAutoresizingMaskIntoConstraints="NO" id="oQ3-AD-krQ">
                                         <rect key="frame" x="20" y="215" width="260" height="2.5"/>
                                         <color key="tintColor" red="0.2901960784" green="0.53725490200000003" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>

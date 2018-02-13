@@ -19,6 +19,7 @@ public class BrainBlocksPayment: UIViewController {
     
     // payment session amount
     static var paymentAmount = 0
+    static var sessionTime = 300
     
     // where payment will be sent after verify
     static var paymentdestination = ""
@@ -45,8 +46,8 @@ public class BrainBlocksPayment: UIViewController {
     }
     
     // launch payment UI
-    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentAmount amount: Double, paymentDestination destination: String) {
-
+    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentAmount amount: Double, paymentDestination destination: String, sessionTime time: Int) {
+        
         // Check for Internet
         if !Connectivity.isConnectedToInternet {
             print("No Connection")
@@ -75,6 +76,7 @@ public class BrainBlocksPayment: UIViewController {
             
             BrainBlocksPayment.paymentdestination = destination
             BrainBlocksPayment.paymentAmount = convertAmount
+            BrainBlocksPayment.sessionTime = time
             self.brainBlocksStartSession(paymentAmount: convertAmount, paymentDestination: processedAddress)
             
             let paymentViewController = PaymentViewController.instantiate()
@@ -104,6 +106,11 @@ public class BrainBlocksPayment: UIViewController {
             return
         }
         
+        // To check if a sessionTime is between 120-300 seconds
+        if BrainBlocksPayment.sessionTime < 120 || BrainBlocksPayment.sessionTime > 300 {
+            BrainBlocksPayment.sessionTime = 300
+        }
+        
         BrainBlocksPayment.paymentAmount = amount
         
         let headers = [
@@ -111,7 +118,8 @@ public class BrainBlocksPayment: UIViewController {
         ]
         let params: [String : String] = [
             "amount": "\(amount)",
-            "destination": "\(destination)"
+            "destination": "\(destination)",
+            "time" : "\(BrainBlocksPayment.sessionTime)"
         ]
         
         Alamofire.request(BrainBlocksPayment.sessionURL, method: .post, parameters: params, headers: headers).responseJSON { response in
@@ -146,10 +154,13 @@ public class BrainBlocksPayment: UIViewController {
             return
         }
         
+        // setup config time for transfer
+        let configTime = (BrainBlocksPayment.sessionTime + 15)
+        
         // config alamofire session to prevent transfer timeouts
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 135
-        configuration.timeoutIntervalForResource = 135
+        configuration.timeoutIntervalForRequest = TimeInterval(configTime)
+        configuration.timeoutIntervalForResource = TimeInterval(configTime)
         BrainBlocksPayment.afManager = Alamofire.SessionManager(configuration: configuration)
         
         BrainBlocksPayment.afManager.request("\(BrainBlocksPayment.sessionURL)/\(token)/transfer", method: .post).responseJSON { response in

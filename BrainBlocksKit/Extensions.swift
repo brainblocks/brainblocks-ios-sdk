@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 
-
 public extension String {
     /**
     Check if address is a valid XRB address.
@@ -25,6 +24,19 @@ public extension String {
             return false
         }
     }
+}
+
+/**
+ Calculates subtract amount for timer indicator
+ */
+func calcTimerIndicatorDecimal() -> Float {
+    var decimalString = String(format: "%g", 100.0/Double(BrainBlocksPayment.sessionTime))
+    decimalString = decimalString.replacingOccurrences(of: "0.", with: "")
+    let floatNumber = Float("0.00\(decimalString)")!
+    decimalString = String(format: "%g", floatNumber)
+    let time = Float(decimalString)!
+    
+    return time
 }
 
 /**

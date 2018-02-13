@@ -24,9 +24,10 @@ public class PaymentViewController: UIViewController {
     @IBOutlet weak var raiblocksButton: UIButton!
     @IBOutlet weak var QRButton: UIButton!
     
+    var style = UIApplication.shared.statusBarStyle
     let brainBlocksManager = BrainBlocksPayment()
     var countdownTimer: Timer!
-    var totalTime = 120
+    var totalTime = BrainBlocksPayment.sessionTime
     var progressValue: Float = 1.0
     var qrSet: Bool = false
     var qrURL = ""
@@ -77,13 +78,15 @@ public class PaymentViewController: UIViewController {
     }
     
     public override func viewWillAppear(_ animated: Bool) {
+        style = UIApplication.shared.statusBarStyle
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .default
+        UIApplication.shared.statusBarStyle = style
     }
     
+    // MARK: Start Timer
     @objc func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
@@ -94,7 +97,7 @@ public class PaymentViewController: UIViewController {
             self.indicator.isHidden = true
             
             // setup qrURL
-            self.qrURL = "xrb:\(BrainBlocksPayment.account)?amount=\(BrainBlocksPayment.paymentAmount)"
+            self.qrURL = "xrb:\(BrainBlocksPayment.account)"
             let qrCode = QRCode(self.qrURL)
             self.QRButton.setImage(qrCode?.image, for: .normal)
             
@@ -102,18 +105,20 @@ public class PaymentViewController: UIViewController {
             self.accountLabel.text = BrainBlocksPayment.account
             self.accountLabel.isHidden = false
             self.qrSet = true
-            self.totalTime = 120
+            self.totalTime = BrainBlocksPayment.sessionTime
+            self.timerLabel.text = "\(self.totalTime) seconds remaining"
             self.timerLabel.isHidden = false
             self.progressBar.isHidden = false
             self.cancelButton.isHidden = false
         }
     }
     
+    // MARK: Update Timer
     // update timmer label and progress bar
     @objc func updateTime() {
         if totalTime != 0 {
             totalTime -= 1
-            progressValue = progressValue - 0.00833
+            progressValue = progressValue - calcTimerIndicatorDecimal()
         } else {
             endTimer()
             brainBlocksManager.cancelBrainBlocksPaymentSession()
@@ -125,6 +130,7 @@ public class PaymentViewController: UIViewController {
         progressBar.progress = progressValue
     }
     
+    // MARK: End Timer
     // end timer and reset back to start for next payment
     func endTimer() {
         cancelButton.isHidden = true
@@ -139,6 +145,7 @@ public class PaymentViewController: UIViewController {
         countdownTimer.invalidate()
     }
     
+    // MARK: Copy QR Code
     @IBAction func copyQRCode(_ sender: UIButton) {
         // copy address to clipboard
         UIPasteboard.general.string = BrainBlocksPayment.account
