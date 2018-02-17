@@ -97,7 +97,7 @@ public class PaymentViewController: UIViewController {
             self.indicator.isHidden = true
             
             // setup qrURL
-            self.qrURL = "xrb:\(BrainBlocksPayment.account)"
+            self.qrURL = BrainBlocksPayment.account
             let qrCode = QRCode(self.qrURL)
             self.QRButton.setImage(qrCode?.image, for: .normal)
             
