@@ -39,6 +39,21 @@ func calcTimerIndicatorDecimal() -> Float {
     return time
 }
 
+
+/**
+ Calculates seconds Int To Minutes and returns as String
+ */
+public extension Int {
+    func secondsToMinutes() -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.unitsStyle = .positional
+        
+        let formattedString = formatter.string(from: TimeInterval(self))!
+        return formattedString
+    }
+}
+
 /**
  Pulls address out of RaiBlocks url or QR Code
 */

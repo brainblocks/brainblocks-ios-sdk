@@ -125,7 +125,17 @@ public class BrainBlocksPayment: UIViewController {
         Alamofire.request(BrainBlocksPayment.sessionURL, method: .post, parameters: params, headers: headers).responseJSON { response in
             if let tokenJSON = response.result.value as? [String : AnyObject]! {
                 
-                let status = tokenJSON["status"] as! String
+                // make sure tokenJSON is there
+                guard let tokenJSON = tokenJSON else {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStartFailed"), object: nil)
+                    return
+                }
+                
+                // make sure we can pull the status
+                guard let status = tokenJSON["status"] as? String else {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStartFailed"), object: nil)
+                    return
+                }
                 
                 switch status {
                 case "success":
@@ -166,14 +176,18 @@ public class BrainBlocksPayment: UIViewController {
         BrainBlocksPayment.afManager.request("\(BrainBlocksPayment.sessionURL)/\(token)/transfer", method: .post).responseJSON { response in
             if let resultJSON = response.result.value as? [String : AnyObject]! {
                 
-                // check if results are nil
-                if resultJSON == nil {
+                // make sure resultJSON is there
+                guard let resultJSON = resultJSON else {
                     // return nil to break out of func
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksPaymentFailed"), object: nil)
                     return
                 }
                 
-                // hold status in let for switch
-                let status = resultJSON["status"] as! String
+                // make sure we can pull the status
+                guard let status = resultJSON["status"] as? String else {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksPaymentFailed"), object: nil)
+                    return
+                }
                 
                 switch status {
                 case "success":
@@ -198,13 +212,29 @@ public class BrainBlocksPayment: UIViewController {
         Alamofire.request("\(BrainBlocksPayment.sessionURL)/\(token)/verify", method: .get).responseJSON { response in
             if let resultJSON = response.result.value as? [String : AnyObject]! {
                 
-                // pull token from result json
-                let token = resultJSON["token"] as! String
-                let fulfilled = resultJSON["fulfilled"] as! Bool
+                // make sure resultJSON is there
+                guard let resultJSON = resultJSON else {
+                    // post payment failed and break out of function
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksPaymentFailed"), object: nil)
+                    return
+                }
+                
+                // pull token from resultJSON if we can
+                guard let token = resultJSON["token"] as? String else {
+                    // post payment failed and break out of function
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksPaymentFailed"), object: nil)
+                    return
+                }
+                
+                // pull fulfilled value if we can
+                guard let fulfilled = resultJSON["fulfilled"] as? Bool else {
+                    // post payment failed and break out of function
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksPaymentFailed"), object: nil)
+                    return
+                }
                 
                 // make sure token and received amounts are correct
                 if token == token && fulfilled {
-        
                     // announce payment success
                     print("BrainBlocks Payment Success")
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksPaymentSuccess"), object: nil)

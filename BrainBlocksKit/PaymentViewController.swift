@@ -106,7 +106,7 @@ public class PaymentViewController: UIViewController {
             self.accountLabel.isHidden = false
             self.qrSet = true
             self.totalTime = BrainBlocksPayment.sessionTime
-            self.timerLabel.text = "\(self.totalTime) seconds remaining"
+            self.timerLabel.text = "\(self.totalTime.secondsToMinutes()) remaining"
             self.timerLabel.isHidden = false
             self.progressBar.isHidden = false
             self.cancelButton.isHidden = false
@@ -126,7 +126,7 @@ public class PaymentViewController: UIViewController {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionTimeOut"), object: nil)
         }
         
-        timerLabel.text = "\(totalTime) seconds remaining"
+        timerLabel.text = "\(self.totalTime.secondsToMinutes()) remaining"
         progressBar.progress = progressValue
     }
     
