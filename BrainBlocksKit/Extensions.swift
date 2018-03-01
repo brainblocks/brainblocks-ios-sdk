@@ -55,7 +55,7 @@ public extension Int {
 }
 
 /**
- Pulls address out of RaiBlocks url or QR Code
+ Pulls address out of Nano url or QR Code
 */
 func processAddress(url: String, completionHandler: @escaping (String) -> ()) {
     var address: String = url
