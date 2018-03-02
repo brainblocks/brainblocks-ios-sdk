@@ -178,6 +178,6 @@ NotificationCenter.default.addObserver(self, selector: #selector(insufficientPay
 
 ## Donate 
 
-Donate to schenkty (contributor): xrb_1jnatu97dka1h49zudxtpxxrho3j591jwu5bzsn7h1kzn3gwit4kejak756y
+Donate to schenkty (contributor): xrb_1tys7jox1fcr9aa46i4zew7aq4d7kjgdry15bjhb4cuo459ob9nr8mtkgogk
 
 Donate to BrainBlocks: xrb_164xaa1ojy6qmq9e8t94mz8izr4mkf1sojb6xrmstru5jsif48g5kegcqg7y
