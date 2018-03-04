@@ -178,14 +178,11 @@ public class BrainBlocksPayment: UIViewController {
                 
                 // make sure resultJSON is there
                 guard let resultJSON = resultJSON else {
-                    // return nil to break out of func
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksPaymentFailed"), object: nil)
                     return
                 }
                 
                 // make sure we can pull the status
                 guard let status = resultJSON["status"] as? String else {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksPaymentFailed"), object: nil)
                     return
                 }
                 
