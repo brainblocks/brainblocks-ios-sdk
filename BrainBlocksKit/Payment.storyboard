@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g8k-pq-PTO">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +24,11 @@
             <objects>
                 <viewController storyboardIdentifier="PaymentViewController" id="g8k-pq-PTO" customClass="PaymentViewController" customModule="BrainBlocksKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7bN-di-EJS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKv-AW-gTy" userLabel="Payment View">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="57" y="218" width="300" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xrb_1jnatu97dka1h49zudxtpxxrho3j591jwu5bzsn7h1kzn3gwit4kejak756y" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2G-wc-V0Y" userLabel="Account Label">
                                         <rect key="frame" x="20" y="165" width="260" height="40"/>
@@ -65,12 +66,12 @@
                                         </constraints>
                                     </stackView>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.0033" translatesAutoresizingMaskIntoConstraints="NO" id="oQ3-AD-krQ">
-                                        <rect key="frame" x="20" y="215" width="260" height="2.5"/>
+                                        <rect key="frame" x="20" y="215" width="260" height="2.6666666666666572"/>
                                         <color key="tintColor" red="0.2901960784" green="0.53725490200000003" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 seconds remaining" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcK-Xm-fgf">
-                                        <rect key="frame" x="0.0" y="227" width="300" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="227" width="300" height="16.333333333333343"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -94,7 +95,7 @@
                                         <color key="color" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwf-4C-FDa" userLabel="QR Button">
-                                        <rect key="frame" x="100.5" y="55" width="100" height="100"/>
+                                        <rect key="frame" x="100.33333333333334" y="55" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="GKe-na-PcV"/>
                                             <constraint firstAttribute="width" constant="100" id="MdR-GQ-BjN"/>
@@ -112,6 +113,7 @@
                                     <constraint firstAttribute="trailing" secondItem="V2G-wc-V0Y" secondAttribute="trailing" constant="20" id="7nK-k2-sFD"/>
                                     <constraint firstItem="cN2-QP-0pG" firstAttribute="centerY" secondItem="gKv-AW-gTy" secondAttribute="centerY" id="EHT-oL-vKX"/>
                                     <constraint firstAttribute="trailing" secondItem="e5c-s7-cXk" secondAttribute="trailing" id="FY8-8k-tD9"/>
+                                    <constraint firstAttribute="width" secondItem="gKv-AW-gTy" secondAttribute="height" multiplier="1:1" id="JSM-d5-Ckf"/>
                                     <constraint firstItem="oQ3-AD-krQ" firstAttribute="leading" secondItem="gKv-AW-gTy" secondAttribute="leading" constant="20" id="Khd-Ft-d8x"/>
                                     <constraint firstAttribute="trailing" secondItem="gcK-Xm-fgf" secondAttribute="trailing" id="LHy-k9-D6j"/>
                                     <constraint firstAttribute="bottom" secondItem="hiQ-2R-4iZ" secondAttribute="bottom" constant="8" id="QCd-b0-FOI"/>
@@ -132,10 +134,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MR-vs-cex" userLabel="Address Copied">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Copied" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjR-Xy-1JS">
-                                        <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                        <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                         <color key="backgroundColor" red="0.17931127845431083" green="0.80735038129973469" blue="0.12815130527140398" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="FX3-7h-Sjs"/>
@@ -180,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UyD-Q8-8PI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66" y="70"/>
+            <point key="canvasLocation" x="65.217391304347828" y="69.293478260869577"/>
         </scene>
     </scenes>
     <resources>

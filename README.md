@@ -37,7 +37,6 @@ $ pod install
 
 ## Usage
 
-### Recommend Method
 In the ViewController that you would like to use BrainBlocks, import BrainBlockKit and implement code like the following.
 
 ```swift
@@ -68,40 +67,7 @@ class ViewController: UIViewController {
     }
  }
  ```
- 
-### Alternative Method
 
-The Following functions can also be used as an alternative to the simple popup ui.
-> warning: Do not use these functions with Popup UI. This method is also not supported.
-
-```swift
-// start brainblocks payment session
-// saves token to BrainBlocksPayment.token
-// saves payment account address to BrainBlocksPayment.account
-// saves payment amount to BrainBlocksPayment.paymentAmount
-// launch's brainBlocksTransferPayment() automatically 
-func brainBlocksStartSession(paymentAmount amount: Int, paymentDestination destination: String)
-```
-
-```swift
-// start brainblocks transfer session for payment
-// posts BrainBlocksPaymentFailed notification if failed else launches brainBlocksVerifyPayment()
-func brainBlocksTransferPayment(token: String) {}
-```
-
-```swift
-// verfiy brainblocks payment
-// checks if token and amounts are corrent
-// if correct, post BrainBlocksPaymentSuccess notification else
-// post BrainBlocksInsufficientPayment notification
-func brainBlocksVerifyPayment(token: String) {}
-```
-
-```swift
-// cancels BrainBlocks Payment Session
-func cancelBrainBlocksPaymentSession() {}
-```
- 
 ## BrainBlocks SDK Events
 
 The BrainBlocks SDK uses local notifications to send events. Each of the following event observer's is optional but are needed to know when a specific event happens.

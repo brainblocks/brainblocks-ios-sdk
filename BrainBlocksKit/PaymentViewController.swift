@@ -54,6 +54,18 @@ public class PaymentViewController: UIViewController {
         let bundleURL = podBundle.url(forResource: "BrainBlocksKit", withExtension: "bundle")
         let bundle = Bundle(url: bundleURL!)
         
+        // Remove background color
+        mainView.backgroundColor = UIColor.clear
+        
+        // Add blur background
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        view.addSubview(paymentUI)
+        view.addSubview(copyAddress)
+        
         //Pay 0.001 XRB
         amountLabel.text = "Pay \(amount)"
         paymentUI.layer.cornerRadius = 10.0
