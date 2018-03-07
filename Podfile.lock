@@ -1,15 +1,21 @@
 PODS:
   - Alamofire (4.6.0)
+  - BigInt (3.0.1):
+    - SipHash (~> 1.2)
   - QRCode (2.0)
+  - SipHash (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - BigInt (~> 3.0)
   - QRCode
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  BigInt: 8e8a52161c745cd3ab78e3dc346a9fbee51e6cf6
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
+  SipHash: c6e9e43e9c531b5bc6602545130c26194a6d31ce
 
-PODFILE CHECKSUM: e09025534d35d30b3a08074b91ce0ef497f53168
+PODFILE CHECKSUM: dc622965aa8170128a23e4becb53e71a464dad7b
 
 COCOAPODS: 1.4.0

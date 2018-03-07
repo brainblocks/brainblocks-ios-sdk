@@ -160,8 +160,8 @@
                         <constraints>
                             <constraint firstItem="1MR-vs-cex" firstAttribute="top" secondItem="7bN-di-EJS" secondAttribute="top" id="0kE-1C-gK1"/>
                             <constraint firstItem="1MR-vs-cex" firstAttribute="leading" secondItem="UbV-8G-EG5" secondAttribute="leading" id="3GN-Rs-Xg7"/>
+                            <constraint firstItem="gKv-AW-gTy" firstAttribute="centerY" secondItem="7bN-di-EJS" secondAttribute="centerY" id="4b5-LH-OCH"/>
                             <constraint firstItem="gKv-AW-gTy" firstAttribute="centerX" secondItem="7bN-di-EJS" secondAttribute="centerX" id="GPI-Ke-UMH"/>
-                            <constraint firstItem="gKv-AW-gTy" firstAttribute="centerY" secondItem="7bN-di-EJS" secondAttribute="centerY" id="Id3-fx-1fO"/>
                             <constraint firstItem="UbV-8G-EG5" firstAttribute="trailing" secondItem="1MR-vs-cex" secondAttribute="trailing" id="h0P-qX-V23"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UbV-8G-EG5"/>
@@ -174,15 +174,15 @@
                         <outlet property="copyAddress" destination="1MR-vs-cex" id="ETM-RA-x16"/>
                         <outlet property="indicator" destination="cN2-QP-0pG" id="JuT-iW-5yS"/>
                         <outlet property="mainView" destination="7bN-di-EJS" id="k1m-vE-NWF"/>
+                        <outlet property="nanoLogoButton" destination="ZTF-wR-bBu" id="eTP-3p-ds8"/>
                         <outlet property="paymentUI" destination="gKv-AW-gTy" id="Roc-yI-yYG"/>
                         <outlet property="progressBar" destination="oQ3-AD-krQ" id="WPo-t4-YCf"/>
-                        <outlet property="raiblocksButton" destination="ZTF-wR-bBu" id="xiX-gW-zc4"/>
                         <outlet property="timerLabel" destination="gcK-Xm-fgf" id="BbP-Yh-tHw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UyD-Q8-8PI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65.217391304347828" y="69.293478260869577"/>
+            <point key="canvasLocation" x="-212" y="77"/>
         </scene>
     </scenes>
     <resources>

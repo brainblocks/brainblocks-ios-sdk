@@ -1,5 +1,5 @@
 //
-//  ConvertXRB.swift
+//  ConvertNano.swift
 //  BrainBlocksKit
 //
 //  Created by Ty Schenk on 1/18/18.
@@ -47,25 +47,25 @@ public extension BrainBlocksPayment {
         case usd = "usd"
         case twd = "twd"
         case zar = "zar"
-        case xrb = "xrb"
+        case nano = "nano"
     }
     
     /**
-     Converts supplied with rai
+     Converts supplied with nano
      
      - Parameters:
      - Currency: Currency you are providing
      - Amount: Amount of currency provided
      
-     - Returns: Int rai amount
+     - Returns: Int nano amount
      */
-    func convertToRai(currency: Currencies, amount: Double, completionHandler: @escaping (Int) -> ()) {
-        var rai = Int()
+    func convertToNano(currency: Currencies, amount: Double, completionHandler: @escaping (Int) -> ()) {
+        var nano = Int()
         
         // if xrb - calc local instead and avoid network request
-        if currency == .xrb {
-            rai = Int((amount * 1000000))
-            completionHandler(rai)
+        if currency == .nano {
+            nano = Int((amount * 1000000))
+            completionHandler(nano)
             return
         }
         
@@ -74,8 +74,8 @@ public extension BrainBlocksPayment {
         Alamofire.request(url, method: .get).responseJSON { response in
             if let resultJSON = response.result.value as? [String : AnyObject]! {
                 // pull token from result json
-                rai = resultJSON["rai"] as! Int
-                completionHandler(rai)
+                nano = resultJSON["rai"] as! Int
+                completionHandler(nano)
             } else {
                 completionHandler(0)
             }

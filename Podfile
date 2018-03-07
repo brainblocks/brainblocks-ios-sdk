@@ -8,6 +8,7 @@ target 'BrainBlocksKit' do
   # Pods for BrainBlocksKit
   pod 'QRCode'
   pod 'Alamofire', '~> 4.5'
+  pod 'BigInt', '~> 3.0'
 
   target 'BrainBlocksKitTests' do
     inherit! :search_paths

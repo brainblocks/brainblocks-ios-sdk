@@ -17,10 +17,10 @@ public extension String {
     */
     public func validAddress() -> Bool {
         if self.range(of: "^xrb_[a-z0-9]{60}$", options: .regularExpression) != nil {
-            // Valid Raiblocks Address
+            // Valid Nano Address
             return true
         } else {
-            // Not Valid Raiblocks Address
+            // Not Valid Nano Address
             return false
         }
     }
@@ -39,7 +39,6 @@ func calcTimerIndicatorDecimal() -> Float {
     return time
 }
 
-
 /**
  Calculates seconds Int To Minutes and returns as String
  */
@@ -57,20 +56,43 @@ public extension Int {
 /**
  Pulls address out of Nano url or QR Code
 */
-func processAddress(url: String, completionHandler: @escaping (String) -> ()) {
+func processAddress(url: String, completionHandler: @escaping (String, String) -> ()) {
     var address: String = url
+    var amount: String = ""
     
-    // strip after ?
+    // strip after &
+    if let urlRange = address.range(of:"&") {
+        address.removeSubrange(urlRange.lowerBound..<address.endIndex)
+    }
+    
+    // check to see if amount is in address url
+    if url.lowercased().range(of:"?amount=") == nil {
+        // strip after ?
+        if let urlRange = address.range(of:"?") {
+            address.removeSubrange(urlRange.lowerBound..<address.endIndex)
+        }
+    }
+    
+    // pull amount value after ?amount=
+    if let range = address.range(of: "?amount=") {
+        let rangeAmount = address[range.upperBound...].trimmingCharacters(in: .whitespaces)
+        amount = rangeAmount
+        print(amount)
+    }
+    
+    // strip leftover after?
     if let urlRange = address.range(of:"?") {
         address.removeSubrange(urlRange.lowerBound..<address.endIndex)
     }
     
+    // remove prefix xrb:
     address = address.replacingOccurrences(of: "xrb:", with: "")
     
+    // check if processed address is valid
     if address.validAddress() {
-        completionHandler(address)
+        completionHandler(address, amount)
     } else {
-        completionHandler("")
+        completionHandler("", "0")
         print("Address processing error")
     }
 }

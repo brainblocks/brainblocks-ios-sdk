@@ -53,24 +53,27 @@ class ViewController: UIViewController {
     // Example Function
     func showPayment() {
     
-        // payment rai amount. rai = 1xrb/1000000
-        var amount: Int = 1
+        // payment nano amount. nano = 1 NANO/1000000
+        var amount: Double = 1
+        
+        // payment view
+        let style: UIBlurEffectStyle = .light
         
         // Follow the URL/QR standard here: https://github.com/clemahieu/raiblocks/wiki/URI-and-QR-Code-Standard
-        let paymentAccount: String = "<Your XRB Payment Address Here>"
+        let paymentAccount: String = "<Your Nano Payment Address Here>"
         
         //set time before session timeout. must be between 120-300 seconds
-        let sessionTime: Int = 200
+        let sessionTime: Int = 300
         
         // Launch BrainBlocks Popup Payment UI
-        BrainBlocksPayment().launchBrainBlocksPaymentView(viewController: self, paymentCurrency: .xrb, paymentAmount: amount, paymentDestination: paymentAccount, sessionTime: sessionTime)
+        BrainBlocksPayment().launchBrainBlocksPaymentView(viewController: self, paymentCurrency: .nano, paymentDestination: paymentAccount, paymentAmount: amount, sessionTime: sessionTime, paymentMode: .Pay, backgroundStyle: style)
     }
  }
  ```
 
-## BrainBlocks SDK Events
+## BrainBlocksKit Events
 
-The BrainBlocks SDK uses local notifications to send events. Each of the following event observer's is optional but are needed to know when a specific event happens.
+The BrainBlocksKit uses local notifications to send events. Each of the following event observer's is optional but are needed to know when a specific event happens.
 
 #### BrainBlocksSessionStart notification
 ```swift

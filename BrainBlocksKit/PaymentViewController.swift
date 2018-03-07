@@ -21,10 +21,17 @@ public class PaymentViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var raiblocksButton: UIButton!
+    @IBOutlet weak var nanoLogoButton: UIButton!
     @IBOutlet weak var QRButton: UIButton!
     
+    public enum PaymentMode {
+        case Pay
+        case Donate
+    }
+    
     var style = UIApplication.shared.statusBarStyle
+    static var mode: PaymentMode = .Pay
+    static var blurStyle: UIBlurEffectStyle = .regular
     let brainBlocksManager = BrainBlocksPayment()
     var countdownTimer: Timer!
     var totalTime = BrainBlocksPayment.sessionTime
@@ -32,7 +39,7 @@ public class PaymentViewController: UIViewController {
     var qrSet: Bool = false
     var qrURL = ""
     
-    var amount: Double {
+    var fancyNanoAmount: Double {
         return Double(round(Double(BrainBlocksPayment.paymentAmount)) / 1000000)
     }
     
@@ -58,7 +65,7 @@ public class PaymentViewController: UIViewController {
         mainView.backgroundColor = UIColor.clear
         
         // Add blur background
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
+        let blurEffect = UIBlurEffect(style: PaymentViewController.blurStyle)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -66,13 +73,26 @@ public class PaymentViewController: UIViewController {
         view.addSubview(paymentUI)
         view.addSubview(copyAddress)
         
-        //Pay 0.001 XRB
-        amountLabel.text = "Pay \(amount)"
+        // Show Pay or Donate
+        switch PaymentViewController.mode {
+        case .Donate:
+            amountLabel.text = "Donate \(fancyNanoAmount)"
+        default:
+            amountLabel.text = "Pay \(fancyNanoAmount)"
+        }
+        
+        // render payment view corners
         paymentUI.layer.cornerRadius = 10.0
         paymentUI.layer.masksToBounds = true
         cancelButton.layer.cornerRadius = 10.0
         cancelButton.layer.masksToBounds = true
-        raiblocksButton.setImage(UIImage(named: "Nano.png", in: bundle, compatibleWith: nil), for: .normal)
+        
+        // set payment view nano logo
+        nanoLogoButton.setImage(UIImage(named: "Nano.png", in: bundle, compatibleWith: nil), for: .normal)
+        
+        // start indicator and hide everything until payment session starts
+        indicator.startAnimating()
+        indicator.isHidden = false
         accountLabel.isHidden = true
         progressBar.progress = progressValue
         timerLabel.isHidden = true
@@ -80,11 +100,10 @@ public class PaymentViewController: UIViewController {
         cancelButton.isHidden = true
         copyAddress.isHidden = true
         copyAddress.alpha = 0.0
-        indicator.startAnimating()
-        indicator.isHidden = false
         
+        // animate the payment view
         mainView.alpha = 0.0
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.8, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.mainView.alpha = 1.0
         }, completion: nil)
     }
@@ -109,7 +128,11 @@ public class PaymentViewController: UIViewController {
             self.indicator.isHidden = true
             
             // setup qrURL
-            self.qrURL = "xrb:\(BrainBlocksPayment.account)"
+            // MARK: QR Raw
+            let rawAmount: String = ("\(BrainBlocksPayment.paymentAmount)000000000000000000000000")
+            
+            self.qrURL = "xrb:\(BrainBlocksPayment.account)?amount=\(rawAmount)"
+            print(self.qrURL)
             let qrCode = QRCode(self.qrURL)
             self.QRButton.setImage(qrCode?.image, for: .normal)
             

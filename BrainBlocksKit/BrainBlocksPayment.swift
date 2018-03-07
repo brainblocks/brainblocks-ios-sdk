@@ -46,21 +46,30 @@ public class BrainBlocksPayment: UIViewController {
     }
     
     // launch payment UI
-    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentAmount amount: Double, paymentDestination destination: String, sessionTime time: Int) {
+    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentDestination destination: String, paymentAmount amount: Double, sessionTime time: Int, paymentMode mode: PaymentViewController.PaymentMode, backgroundStyle blur: UIBlurEffectStyle) {
         
         // Check for Internet
         if !Connectivity.isConnectedToInternet {
             print("No Connection")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStartFailed"), object: nil)
             return
         }
+        
+        // apply style
+        PaymentViewController.blurStyle = blur
+        PaymentViewController.mode = mode
+        
+        // set vars
         var processedAddress: String = ""
         var convertAmount: Int = 0
-            
-        processAddress(url: destination, completionHandler: { (address) in
+        
+        // process address
+        processAddress(url: destination, completionHandler: { (address, amount) in
             processedAddress = address
         })
 
-        convertToRai(currency: currency, amount: amount, completionHandler: { (value) in
+        // convert currency to rai
+        convertToNano(currency: currency, amount: amount, completionHandler: { (value) in
             convertAmount = value
             
             // after convertAmount is pulled. finish function
@@ -88,7 +97,7 @@ public class BrainBlocksPayment: UIViewController {
     }
     
     // start brainblocks payment session
-    open func brainBlocksStartSession(paymentAmount amount: Int, paymentDestination destination: String) {
+    func brainBlocksStartSession(paymentAmount amount: Int, paymentDestination destination: String) {
 
         // Check for Internet
         if !Connectivity.isConnectedToInternet {
@@ -156,7 +165,7 @@ public class BrainBlocksPayment: UIViewController {
     }
     
     // start brainblocks transfer session for payment
-    open func brainBlocksTransferPayment(token: String) {
+    func brainBlocksTransferPayment(token: String) {
     
         // Check for Internet
         if !Connectivity.isConnectedToInternet {
@@ -199,7 +208,7 @@ public class BrainBlocksPayment: UIViewController {
         }
     }
     
-    open func brainBlocksVerifyPayment(token: String) {
+    func brainBlocksVerifyPayment(token: String) {
         // Check for Internet
         if !Connectivity.isConnectedToInternet {
             print("No Connection")
@@ -244,7 +253,7 @@ public class BrainBlocksPayment: UIViewController {
         }
     }
     
-    open func cancelBrainBlocksPaymentSession() {
+    func cancelBrainBlocksPaymentSession() {
         // if token is not empty, cancel all networking tasks in afManager
         if BrainBlocksPayment.token != "" {
             BrainBlocksPayment.afManager.session.getAllTasks { task in
