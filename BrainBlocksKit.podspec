@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BrainBlocksKit"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = "A Payment Framework for Nano."
 
   s.description  = "The BrainBlocksKit is a complete payment framework that can be used in any iOS app to accept Nano."
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
 
   s.author       = "BrainBlocks"
 
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios, "11.0"
 
   s.source       = { :git => "https://github.com/brainblocks/brainblocks-ios-sdk.git", :tag => "v#{s.version}" }
 

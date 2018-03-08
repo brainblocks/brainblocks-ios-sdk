@@ -62,7 +62,7 @@ public extension BrainBlocksPayment {
     func convertToNano(currency: Currencies, amount: Double, completionHandler: @escaping (Int) -> ()) {
         var nano = Int()
         
-        // if xrb - calc local instead and avoid network request
+        // if nano - calc local instead and avoid network request
         if currency == .nano {
             nano = Int((amount * 1000000))
             completionHandler(nano)
@@ -82,3 +82,4 @@ public extension BrainBlocksPayment {
         }
     }
 }
+

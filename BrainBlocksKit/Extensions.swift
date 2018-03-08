@@ -16,7 +16,9 @@ public extension String {
      - Returns: Bool
      */
     public func validAddress() -> Bool {
-        if self.range(of: "/((?:xrb_[13][a-km-zA-HJ-NP-Z0-9]{59})|(?:nano_[13][a-km-zA-HJ-NP-Z0-9]{59}))/", options: .regularExpression) != nil {
+        // support xrb and nano address
+        //((?:xrb_[13][a-km-zA-HJ-NP-Z0-9]{59})|(?:nano_[13][a-km-zA-HJ-NP-Z0-9]{59}))
+        if self.range(of: "((?:xrb_[13][a-km-zA-HJ-NP-Z0-9]{59})|(?:nano_[13][a-km-zA-HJ-NP-Z0-9]{59}))", options: .regularExpression) != nil {
             // Valid Nano Address
             return true
         } else {
@@ -85,8 +87,9 @@ func processAddress(url: String, completionHandler: @escaping (String, String) -
         address.removeSubrange(urlRange.lowerBound..<address.endIndex)
     }
     
-    // remove prefix xrb:
+    // remove prefix xrb: or nano:
     address = address.replacingOccurrences(of: "xrb:", with: "")
+    address = address.replacingOccurrences(of: "nano:", with: "")
     
     // check if processed address is valid
     if address.validAddress() {
@@ -103,3 +106,4 @@ class Connectivity {
         return NetworkReachabilityManager()!.isReachable
     }
 }
+
