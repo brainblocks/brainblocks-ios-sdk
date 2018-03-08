@@ -11,12 +11,12 @@ import Alamofire
 
 public extension String {
     /**
-    Check if address is a valid XRB address.
-
-    - Returns: Bool
-    */
+     Check if address is a valid nano address.
+     
+     - Returns: Bool
+     */
     public func validAddress() -> Bool {
-        if self.range(of: "^xrb_[a-z0-9]{60}$", options: .regularExpression) != nil {
+        if self.range(of: "/((?:xrb_[13][a-km-zA-HJ-NP-Z0-9]{59})|(?:nano_[13][a-km-zA-HJ-NP-Z0-9]{59}))/", options: .regularExpression) != nil {
             // Valid Nano Address
             return true
         } else {
