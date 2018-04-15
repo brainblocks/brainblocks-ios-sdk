@@ -132,7 +132,7 @@ public class BrainBlocksPayment: UIViewController {
         ]
         
         Alamofire.request(BrainBlocksPayment.sessionURL, method: .post, parameters: params, headers: headers).responseJSON { response in
-            if let tokenJSON = response.result.value as? [String : AnyObject]! {
+            if let tokenJSON = response.result.value as? [String : AnyObject]? {
                 
                 // make sure tokenJSON is there
                 guard let tokenJSON = tokenJSON else {
@@ -183,7 +183,7 @@ public class BrainBlocksPayment: UIViewController {
         BrainBlocksPayment.afManager = Alamofire.SessionManager(configuration: configuration)
         
         BrainBlocksPayment.afManager.request("\(BrainBlocksPayment.sessionURL)/\(token)/transfer", method: .post).responseJSON { response in
-            if let resultJSON = response.result.value as? [String : AnyObject]! {
+            if let resultJSON = response.result.value as? [String : AnyObject]? {
                 
                 // make sure resultJSON is there
                 guard let resultJSON = resultJSON else {
@@ -216,7 +216,7 @@ public class BrainBlocksPayment: UIViewController {
         }
         
         Alamofire.request("\(BrainBlocksPayment.sessionURL)/\(token)/verify", method: .get).responseJSON { response in
-            if let resultJSON = response.result.value as? [String : AnyObject]! {
+            if let resultJSON = response.result.value as? [String : AnyObject]? {
                 
                 // make sure resultJSON is there
                 guard let resultJSON = resultJSON else {

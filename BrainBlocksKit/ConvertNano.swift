@@ -73,11 +73,18 @@ public extension BrainBlocksPayment {
         
         Alamofire.request(url, method: .get).responseJSON { response in
             if let resultJSON = response.result.value as? [String : AnyObject]? {
+                
                 // pull token from result json
-                guard let nano = resultJSON!["rai"] as? Int else {
+                guard let resultJSON = resultJSON else {
                     completionHandler(0)
                     return
                 }
+                
+                guard let nano = resultJSON["rai"] as? Int else {
+                    completionHandler(0)
+                    return
+                }
+                
                 completionHandler(nano)
             } else {
                 completionHandler(0)
