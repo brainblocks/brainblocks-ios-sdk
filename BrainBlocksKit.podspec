@@ -47,5 +47,6 @@ Pod::Spec.new do |s|
   s.dependency 'QRCode'
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
+  s.swift_version = '4.1'
 
 end
