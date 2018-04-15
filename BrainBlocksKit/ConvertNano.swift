@@ -13,7 +13,7 @@ public extension BrainBlocksPayment {
     
     /**
      Enum of supported Currencies in BrainBlocks
-    */
+     */
     public enum Currencies: String {
         case aud = "aud"
         case brl = "brl"
@@ -74,7 +74,12 @@ public extension BrainBlocksPayment {
         Alamofire.request(url, method: .get).responseJSON { response in
             if let resultJSON = response.result.value as? [String : AnyObject]? {
                 
-                guard let nano = resultJSON!["rai"] as? Int else {
+                guard let resultJSON = resultJSON else {
+                    completionHandler(0)
+                    return
+                }
+                
+                guard let nano = resultJSON["rai"] as? Int else {
                     completionHandler(0)
                     return
                 }
@@ -86,4 +91,3 @@ public extension BrainBlocksPayment {
         }
     }
 }
-

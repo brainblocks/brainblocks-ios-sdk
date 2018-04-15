@@ -29,7 +29,10 @@ public class BrainBlocksPayment: UIViewController {
     
     // temp account for payment
     static var account: String = ""
+    
+    // hold views
     var strongSelf: BrainBlocksPayment?
+    public var viewController: UIViewController?
     
     public init() {
         super.init(nibName: nil, bundle: nil)
@@ -58,6 +61,7 @@ public class BrainBlocksPayment: UIViewController {
         // apply style
         PaymentViewController.blurStyle = blur
         PaymentViewController.mode = mode
+        viewController = contentview
         
         // set vars
         var processedAddress: String = ""
@@ -67,38 +71,21 @@ public class BrainBlocksPayment: UIViewController {
         processAddress(url: destination, completionHandler: { (address, amount) in
             processedAddress = address
         })
-
+        
         // convert currency to rai
         convertToNano(currency: currency, amount: amount, completionHandler: { (value) in
             convertAmount = value
-            
-            // after convertAmount is pulled. finish function
-            if processedAddress.validAddress() == false {
-                print("Can not launch BrainBlocks Payment. Invalid Destination Address.")
-                return
-            }
-            
-            if amount == 0 {
-                print("Can not launch BrainBlocks Payment. Missing Amount")
-                return
-            }
             
             BrainBlocksPayment.paymentdestination = destination
             BrainBlocksPayment.paymentAmount = convertAmount
             BrainBlocksPayment.sessionTime = time
             self.brainBlocksStartSession(paymentAmount: convertAmount, paymentDestination: processedAddress)
-            
-            let paymentViewController = PaymentViewController.instantiate()
-            paymentViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-            paymentViewController.modalPresentationStyle = .overCurrentContext
-            
-            contentview.present(paymentViewController, animated: true, completion: nil)
         })
     }
     
     // start brainblocks payment session
     func brainBlocksStartSession(paymentAmount amount: Int, paymentDestination destination: String) {
-
+        
         // Check for Internet
         if !Connectivity.isConnectedToInternet {
             print("No Connection")
@@ -107,11 +94,13 @@ public class BrainBlocksPayment: UIViewController {
         
         if destination.validAddress() == false {
             print("Can not launch BrainBlocks Payment Session. Invalid Destination Address.")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStartFailed"), object: nil)
             return
         }
         
         if amount == 0 {
             print("Can not launch BrainBlocks Payment. Missing Amount")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStartFailed"), object: nil)
             return
         }
         
@@ -154,6 +143,13 @@ public class BrainBlocksPayment: UIViewController {
                     print("BrainBlocks Session Started")
                     
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStart"), object: nil)
+                    
+                    let paymentViewController = PaymentViewController.instantiate()
+                    paymentViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+                    paymentViewController.modalPresentationStyle = .overCurrentContext
+                    
+                    self.viewController!.present(paymentViewController, animated: true, completion: nil)
+                    
                     self.brainBlocksTransferPayment(token: BrainBlocksPayment.token)
                 default:
                     print("BrainBlocks Session Error")
@@ -166,7 +162,7 @@ public class BrainBlocksPayment: UIViewController {
     
     // start brainblocks transfer session for payment
     func brainBlocksTransferPayment(token: String) {
-    
+        
         // Check for Internet
         if !Connectivity.isConnectedToInternet {
             print("No Connection")
@@ -262,4 +258,3 @@ public class BrainBlocksPayment: UIViewController {
         }
     }
 }
-
