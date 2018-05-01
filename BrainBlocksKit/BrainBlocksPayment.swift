@@ -48,6 +48,7 @@ public class BrainBlocksPayment: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // Launch paymnet UI
     // launch payment UI
     open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentDestination destination: String, paymentAmount amount: Double, sessionTime time: Int, paymentMode mode: PaymentViewController.PaymentMode, backgroundStyle blur: UIBlurEffectStyle) {
         
@@ -80,9 +81,16 @@ public class BrainBlocksPayment: UIViewController {
             BrainBlocksPayment.paymentAmount = convertAmount
             BrainBlocksPayment.sessionTime = time
             self.brainBlocksStartSession(paymentAmount: convertAmount, paymentDestination: processedAddress)
+            
+            let paymentViewController = PaymentViewController.instantiate()
+            paymentViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+            paymentViewController.modalPresentationStyle = .overCurrentContext
+            
+            self.viewController!.present(paymentViewController, animated: true, completion: nil)
         })
     }
     
+    // MARK: Start Payment Session
     // start brainblocks payment session
     func brainBlocksStartSession(paymentAmount amount: Int, paymentDestination destination: String) {
         
@@ -141,15 +149,7 @@ public class BrainBlocksPayment: UIViewController {
                     BrainBlocksPayment.token = tokenJSON["token"] as! String
                     // set current token for future usage
                     print("BrainBlocks Session Started")
-                    
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStart"), object: nil)
-                    
-                    let paymentViewController = PaymentViewController.instantiate()
-                    paymentViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-                    paymentViewController.modalPresentationStyle = .overCurrentContext
-                    
-                    self.viewController!.present(paymentViewController, animated: true, completion: nil)
-                    
                     self.brainBlocksTransferPayment(token: BrainBlocksPayment.token)
                 default:
                     print("BrainBlocks Session Error")
@@ -160,6 +160,7 @@ public class BrainBlocksPayment: UIViewController {
         }
     }
     
+    // MARK: Transfer Payment Function
     // start brainblocks transfer session for payment
     func brainBlocksTransferPayment(token: String) {
         
@@ -170,7 +171,7 @@ public class BrainBlocksPayment: UIViewController {
         }
         
         // setup config time for transfer
-        let configTime = (BrainBlocksPayment.sessionTime + 15)
+        let configTime = (BrainBlocksPayment.sessionTime + 5)
         
         // config alamofire session to prevent transfer timeouts
         let configuration = URLSessionConfiguration.default
@@ -204,6 +205,8 @@ public class BrainBlocksPayment: UIViewController {
         }
     }
     
+    // MARK: Verify Payment
+    // verify if the payment is correct
     func brainBlocksVerifyPayment(token: String) {
         // Check for Internet
         if !Connectivity.isConnectedToInternet {

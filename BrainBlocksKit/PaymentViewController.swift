@@ -121,31 +121,28 @@ public class PaymentViewController: UIViewController {
     @objc func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
-        let when = DispatchTime.now() + 0.1 // wait for countdown to start
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            // set qr code
-            self.indicator.stopAnimating()
-            self.indicator.isHidden = true
-            
-            // setup qrURL
-            // MARK: QR Raw
-            let rawAmount: String = ("\(BrainBlocksPayment.paymentAmount)000000000000000000000000")
-            
-            self.qrURL = "xrb:\(BrainBlocksPayment.account)?amount=\(rawAmount)"
-            print(self.qrURL)
-            let qrCode = QRCode(self.qrURL)
-            self.QRButton.setImage(qrCode?.image, for: .normal)
-            
-            // setup everything else
-            self.accountLabel.text = BrainBlocksPayment.account
-            self.accountLabel.isHidden = false
-            self.qrSet = true
-            self.totalTime = BrainBlocksPayment.sessionTime
-            self.timerLabel.text = "\(self.totalTime.secondsToMinutes()) remaining"
-            self.timerLabel.isHidden = false
-            self.progressBar.isHidden = false
-            self.cancelButton.isHidden = false
-        }
+        // set qr code
+        self.indicator.stopAnimating()
+        self.indicator.isHidden = true
+        
+        // setup qrURL
+        // MARK: QR Raw
+        let rawAmount: String = ("\(BrainBlocksPayment.paymentAmount)000000000000000000000000")
+        
+        self.qrURL = "xrb:\(BrainBlocksPayment.account)?amount=\(rawAmount)"
+        print(self.qrURL)
+        let qrCode = QRCode(self.qrURL)
+        self.QRButton.setImage(qrCode?.image, for: .normal)
+        
+        // setup everything else
+        self.accountLabel.text = BrainBlocksPayment.account
+        self.accountLabel.isHidden = false
+        self.qrSet = true
+        self.totalTime = BrainBlocksPayment.sessionTime
+        self.timerLabel.text = "\(self.totalTime.secondsToMinutes()) remaining"
+        self.timerLabel.isHidden = false
+        self.progressBar.isHidden = false
+        self.cancelButton.isHidden = false
     }
     
     // MARK: Update Timer
