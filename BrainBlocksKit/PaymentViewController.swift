@@ -153,7 +153,6 @@ public class PaymentViewController: UIViewController {
             progressValue = progressValue - calcTimerIndicatorDecimal()
         } else {
             endTimer()
-            brainBlocksManager.cancelBrainBlocksPaymentSession()
             dismissPaymentView()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionTimeOut"), object: nil)
         }
