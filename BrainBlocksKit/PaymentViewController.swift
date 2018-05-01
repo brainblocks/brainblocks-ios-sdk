@@ -215,29 +215,8 @@ public class PaymentViewController: UIViewController {
         qrSet = false
         countdownTimer.invalidate()
         
-        // Cancel payment and dismiss view
-        brainBlocksManager.cancelBrainBlocksPaymentSession()
-        dismissPaymentView()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionCancelled"), object: nil)
-    }
-    
-    @IBAction func actionButton(_ sender: UIButton) {
-        let url = URL(string: "https://nano.org")
-        
-        let alert = UIAlertController(title: "Visit Nano.org", message: "Are you sure you want to leave this app?", preferredStyle: .alert)
-        
-        let goAction = UIAlertAction(title: "Yes", style: .default) { (alert: UIAlertAction!) -> Void in
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
-            return
-        }
-        
-        alert.addAction(goAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion:nil)
+        dismissPaymentView()
     }
     
     @objc func dismissPaymentView() {

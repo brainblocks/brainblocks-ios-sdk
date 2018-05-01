@@ -25,7 +25,7 @@ public class BrainBlocksPayment: UIViewController {
     static var paymentdestination = ""
     
     // temp payment session tokens
-    static var token: String = ""
+    public static var token: String = ""
     
     // temp account for payment
     static var account: String = ""
@@ -248,15 +248,6 @@ public class BrainBlocksPayment: UIViewController {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksInsufficientPayment"), object: nil)
                     print("BrainBlocks Payment Error")
                 }
-            }
-        }
-    }
-    
-    func cancelBrainBlocksPaymentSession() {
-        // if token is not empty, cancel all networking tasks in afManager
-        if BrainBlocksPayment.token != "" {
-            BrainBlocksPayment.afManager.session.getAllTasks { task in
-                task.forEach { $0.cancel() }
             }
         }
     }
