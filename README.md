@@ -1,4 +1,4 @@
-# brainblocks-ios-sdk
+# BrainBlocks iOS SDK
 iOS SDK for integrating [BrainBlocks](http://BrainBlocks.io) into a mobile app
 
 [SDK Video Demo](https://www.youtube.com/watch?v=LlhImlhOeyQ)
@@ -144,9 +144,3 @@ NotificationCenter.default.addObserver(self, selector: #selector(insufficientPay
     print("session insufficient payment")
 }
 ```
-
-## Donate 
-
-Donate to schenkty (contributor): xrb_1jnatu97dka1h49zudxtpxxrho3j591jwu5bzsn7h1kzn3gwit4kejak756y
-
-Donate to BrainBlocks: xrb_1brainb3zz81wmhxndsbrjb94hx3fhr1fyydmg6iresyk76f3k7y7jiazoji

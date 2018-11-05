@@ -14,12 +14,12 @@ import NotificationCenter
 
 public class BrainBlocksPayment: UIViewController {
     
-    static let sessionURL = "https://brainblocks.io/api/session"
+    static let sessionURL = "https://api.brainblocks.io/api/session"
     static var afManager : SessionManager!
     
     // payment session amount
     static var paymentAmount = 0
-    static var sessionTime = 300
+    static var sessionTime = (20*60)
     
     // where payment will be sent after verify
     static var paymentdestination = ""
@@ -48,9 +48,8 @@ public class BrainBlocksPayment: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // Launch paymnet UI
     // launch payment UI
-    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentDestination destination: String, paymentAmount amount: Double, sessionTime time: Int, paymentMode mode: PaymentViewController.PaymentMode, backgroundStyle blur: UIBlurEffectStyle) {
+    open func launchBrainBlocksPaymentView(viewController contentview: UIViewController!, paymentCurrency currency: Currencies, paymentDestination destination: String, paymentAmount amount: Double, paymentMode mode: PaymentViewController.PaymentMode, backgroundStyle blur: UIBlurEffectStyle) {
         
         // Check for Internet
         if !Connectivity.isConnectedToInternet {
@@ -79,7 +78,6 @@ public class BrainBlocksPayment: UIViewController {
             
             BrainBlocksPayment.paymentdestination = destination
             BrainBlocksPayment.paymentAmount = convertAmount
-            BrainBlocksPayment.sessionTime = time
             self.brainBlocksStartSession(paymentAmount: convertAmount, paymentDestination: processedAddress)
             
             let paymentViewController = PaymentViewController.instantiate()
@@ -110,11 +108,6 @@ public class BrainBlocksPayment: UIViewController {
             print("Can not launch BrainBlocks Payment. Missing Amount")
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksSessionStartFailed"), object: nil)
             return
-        }
-        
-        // To check if a sessionTime is between 120-300 seconds
-        if BrainBlocksPayment.sessionTime < 120 || BrainBlocksPayment.sessionTime > 300 {
-            BrainBlocksPayment.sessionTime = 300
         }
         
         BrainBlocksPayment.paymentAmount = amount
@@ -248,6 +241,41 @@ public class BrainBlocksPayment: UIViewController {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BrainBlocksInsufficientPayment"), object: nil)
                     print("BrainBlocks Payment Error")
                 }
+            }
+        }
+    }
+    
+    
+    /**
+     Converts supplied with nano
+     
+     - Parameters:
+     - Token: BrainBlocks Token that you need to verify
+     
+     - Returns: Int nano amount
+     */
+    open func brainBlocksVerify(token: String, completionHandler: @escaping (VerifyObject) -> ()) {
+        // Check for Internet
+        if !Connectivity.isConnectedToInternet {
+            print("No Connection")
+            return
+        }
+        
+        Alamofire.request("\(BrainBlocksPayment.sessionURL)/\(token)/verify", method: .get).responseJSON { response in
+            guard let resultJSON = VerifyObject.init(json: (response.result.value as? [String : AnyObject])!) else {
+                print("BrainBlocks Payment Error")
+                completionHandler(VerifyObject.init(token: "unknown", destination: "unknown", currency: "unknown", amount: "unknown", fulfilled: false, sender: "unknown", amountRai: "unknown", receivedRai: "unknown", sendBlock: "unknown"))
+                return
+            }
+            
+            // make sure token and received amounts are correct
+            if token == resultJSON.token && resultJSON.fulfilled {
+                print("BrainBlocks Payment Success")
+                completionHandler(resultJSON)
+            } else {
+                print("BrainBlocks Payment Error")
+                completionHandler(VerifyObject.init(token: "unknown", destination: "unknown", currency: "unknown", amount: "unknown", fulfilled: false, sender: "unknown", amountRai: "unknown", receivedRai: "unknown", sendBlock: "unknown"))
+                return
             }
         }
     }

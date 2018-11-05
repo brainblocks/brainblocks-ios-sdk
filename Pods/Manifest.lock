@@ -1,21 +1,20 @@
 PODS:
-  - Alamofire (4.6.0)
-  - BigInt (3.0.1):
-    - SipHash (~> 1.2)
+  - Alamofire (4.7.2)
   - QRCode (2.0)
-  - SipHash (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
-  - BigInt (~> 3.0)
   - QRCode
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - QRCode
+
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  BigInt: 8e8a52161c745cd3ab78e3dc346a9fbee51e6cf6
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
-  SipHash: c6e9e43e9c531b5bc6602545130c26194a6d31ce
 
-PODFILE CHECKSUM: dc622965aa8170128a23e4becb53e71a464dad7b
+PODFILE CHECKSUM: fda69c4bea55faaec62974c7047ccc081dce9327
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
