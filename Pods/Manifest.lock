@@ -1,20 +1,20 @@
 PODS:
-  - Alamofire (4.7.2)
+  - Alamofire (5.0.0-rc.3)
   - QRCode (2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5)
+  - Alamofire (~> 5.0.0-rc.3)
   - QRCode
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - QRCode
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
 
-PODFILE CHECKSUM: fda69c4bea55faaec62974c7047ccc081dce9327
+PODFILE CHECKSUM: 649af307f489919e13b78b13f8cd5e8b7d5c318c
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.8.4

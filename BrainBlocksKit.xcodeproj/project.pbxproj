@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		320AE929200F2E16004E0D87 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320AE928200F2E16004E0D87 /* PaymentViewController.swift */; };
-		321030F5200EEE67009B40C7 /* BrainBlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 321030EB200EEE67009B40C7 /* BrainBlocksKit.framework */; };
-		321030FA200EEE67009B40C7 /* BrainBlocksKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321030F9200EEE67009B40C7 /* BrainBlocksKitTests.swift */; };
 		321030FC200EEE67009B40C7 /* BrainBlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 321030EE200EEE67009B40C7 /* BrainBlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		321F15FB2197C123009AE0ED /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F15FA2197C123009AE0ED /* Currencies.swift */; };
+		322E7BC7227BD933008B4589 /* BrainBlocksPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322E7BC6227BD933008B4589 /* BrainBlocksPaymentViewController.swift */; };
+		322E7BC9227BD94E008B4589 /* BrainBlocksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322E7BC8227BD94D008B4589 /* BrainBlocksAPI.swift */; };
+		322E7BCB227BE999008B4589 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322E7BCA227BE999008B4589 /* Launch.swift */; };
+		3252FA63226ACC4B00709B4D /* BrainBlocksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252FA62226ACC4B00709B4D /* BrainBlocksDelegate.swift */; };
 		326D22D8209A0A6800EBDB36 /* VerifyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326D22D7209A0A6800EBDB36 /* VerifyObject.swift */; };
-		32A93F6F201190170056CC88 /* ConvertNano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A93F6E201190170056CC88 /* ConvertNano.swift */; };
-		32BD6DA4200EF230001CEC39 /* BrainBlocksPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BD6DA3200EF230001CEC39 /* BrainBlocksPayment.swift */; };
+		329072A9226ACF56005E8286 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329072A8226ACF56005E8286 /* Utilities.swift */; };
 		32C51F0F201193C700576B06 /* BrainBlocksKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */; };
 		32C51F112011948600576B06 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 32C51F102011948600576B06 /* README.md */; };
 		32E6E1E120103FCA0075D296 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6E1E020103FCA0075D296 /* Extensions.swift */; };
@@ -22,29 +23,21 @@
 		F04335333BF1EBAD9DB7CC23 /* Pods_BrainBlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BEFE5C3C66E522DD8653D6 /* Pods_BrainBlocksKit.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		321030F6200EEE67009B40C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 321030E2200EEE67009B40C7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 321030EA200EEE67009B40C7;
-			remoteInfo = BrainBlocksKit;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		01BEFE5C3C66E522DD8653D6 /* Pods_BrainBlocksKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainBlocksKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEFA132B3B129E81B7B5768 /* Pods-BrainBlocksKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainBlocksKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrainBlocksKit/Pods-BrainBlocksKit.debug.xcconfig"; sourceTree = "<group>"; };
-		320AE928200F2E16004E0D87 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		321030EB200EEE67009B40C7 /* BrainBlocksKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BrainBlocksKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		321030EE200EEE67009B40C7 /* BrainBlocksKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrainBlocksKit.h; sourceTree = "<group>"; };
 		321030EF200EEE67009B40C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		321030F4200EEE67009B40C7 /* BrainBlocksKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrainBlocksKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		321030F9200EEE67009B40C7 /* BrainBlocksKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBlocksKitTests.swift; sourceTree = "<group>"; };
 		321030FB200EEE67009B40C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		321F15FA2197C123009AE0ED /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
+		322E7BC6227BD933008B4589 /* BrainBlocksPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBlocksPaymentViewController.swift; sourceTree = "<group>"; };
+		322E7BC8227BD94D008B4589 /* BrainBlocksAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBlocksAPI.swift; sourceTree = "<group>"; };
+		322E7BCA227BE999008B4589 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		3252FA62226ACC4B00709B4D /* BrainBlocksDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBlocksDelegate.swift; sourceTree = "<group>"; };
 		326D22D7209A0A6800EBDB36 /* VerifyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyObject.swift; sourceTree = "<group>"; };
-		32A93F6E201190170056CC88 /* ConvertNano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertNano.swift; sourceTree = "<group>"; };
-		32BD6DA3200EF230001CEC39 /* BrainBlocksPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBlocksPayment.swift; sourceTree = "<group>"; };
+		329072A8226ACF56005E8286 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BrainBlocksKit.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		32C51F102011948600576B06 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		32E6E1DE20103E5A0075D296 /* Payment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payment.storyboard; sourceTree = "<group>"; };
@@ -59,14 +52,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F04335333BF1EBAD9DB7CC23 /* Pods_BrainBlocksKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		321030F1200EEE67009B40C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				321030F5200EEE67009B40C7 /* BrainBlocksKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				321030EB200EEE67009B40C7 /* BrainBlocksKit.framework */,
-				321030F4200EEE67009B40C7 /* BrainBlocksKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,17 +88,19 @@
 		321030ED200EEE67009B40C7 /* BrainBlocksKit */ = {
 			isa = PBXGroup;
 			children = (
-				32BD6DA3200EF230001CEC39 /* BrainBlocksPayment.swift */,
-				320AE928200F2E16004E0D87 /* PaymentViewController.swift */,
-				32E6E1E020103FCA0075D296 /* Extensions.swift */,
-				32A93F6E201190170056CC88 /* ConvertNano.swift */,
+				322E7BCA227BE999008B4589 /* Launch.swift */,
+				322E7BC6227BD933008B4589 /* BrainBlocksPaymentViewController.swift */,
+				322E7BC8227BD94D008B4589 /* BrainBlocksAPI.swift */,
+				329072AA226ACFBC005E8286 /* Delegates */,
+				329072A7226ACE98005E8286 /* Helpers */,
+				321F15FA2197C123009AE0ED /* Currencies.swift */,
+				326D22D7209A0A6800EBDB36 /* VerifyObject.swift */,
 				321030EE200EEE67009B40C7 /* BrainBlocksKit.h */,
 				321030EF200EEE67009B40C7 /* Info.plist */,
 				32E6E1DE20103E5A0075D296 /* Payment.storyboard */,
 				32F37C902022581D0006F1AB /* Nano.png */,
 				32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */,
 				32C51F102011948600576B06 /* README.md */,
-				326D22D7209A0A6800EBDB36 /* VerifyObject.swift */,
 			);
 			path = BrainBlocksKit;
 			sourceTree = "<group>";
@@ -126,6 +112,23 @@
 				321030FB200EEE67009B40C7 /* Info.plist */,
 			);
 			path = BrainBlocksKitTests;
+			sourceTree = "<group>";
+		};
+		329072A7226ACE98005E8286 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				32E6E1E020103FCA0075D296 /* Extensions.swift */,
+				329072A8226ACF56005E8286 /* Utilities.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		329072AA226ACFBC005E8286 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3252FA62226ACC4B00709B4D /* BrainBlocksDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		BB78A58C2930D2C2337420C1 /* Pods */ = {
@@ -170,24 +173,6 @@
 			productReference = 321030EB200EEE67009B40C7 /* BrainBlocksKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		321030F3200EEE67009B40C7 /* BrainBlocksKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 32103102200EEE67009B40C7 /* Build configuration list for PBXNativeTarget "BrainBlocksKitTests" */;
-			buildPhases = (
-				321030F0200EEE67009B40C7 /* Sources */,
-				321030F1200EEE67009B40C7 /* Frameworks */,
-				321030F2200EEE67009B40C7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				321030F7200EEE67009B40C7 /* PBXTargetDependency */,
-			);
-			name = BrainBlocksKitTests;
-			productName = BrainBlocksKitTests;
-			productReference = 321030F4200EEE67009B40C7 /* BrainBlocksKitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -200,12 +185,8 @@
 				TargetAttributes = {
 					321030EA200EEE67009B40C7 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
-					};
-					321030F3200EEE67009B40C7 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -215,6 +196,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 321030E1200EEE67009B40C7;
 			productRefGroup = 321030EC200EEE67009B40C7 /* Products */;
@@ -222,7 +204,6 @@
 			projectRoot = "";
 			targets = (
 				321030EA200EEE67009B40C7 /* BrainBlocksKit */,
-				321030F3200EEE67009B40C7 /* BrainBlocksKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,13 +217,6 @@
 				32F37C912022581D0006F1AB /* Nano.png in Resources */,
 				32E6E1E5201057790075D296 /* Payment.storyboard in Resources */,
 				32C51F112011948600576B06 /* README.md in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		321030F2200EEE67009B40C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,31 +248,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32A93F6F201190170056CC88 /* ConvertNano.swift in Sources */,
-				320AE929200F2E16004E0D87 /* PaymentViewController.swift in Sources */,
+				321F15FB2197C123009AE0ED /* Currencies.swift in Sources */,
 				326D22D8209A0A6800EBDB36 /* VerifyObject.swift in Sources */,
+				322E7BCB227BE999008B4589 /* Launch.swift in Sources */,
+				322E7BC9227BD94E008B4589 /* BrainBlocksAPI.swift in Sources */,
+				322E7BC7227BD933008B4589 /* BrainBlocksPaymentViewController.swift in Sources */,
 				32E6E1E120103FCA0075D296 /* Extensions.swift in Sources */,
-				32BD6DA4200EF230001CEC39 /* BrainBlocksPayment.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		321030F0200EEE67009B40C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				321030FA200EEE67009B40C7 /* BrainBlocksKitTests.swift in Sources */,
+				3252FA63226ACC4B00709B4D /* BrainBlocksDelegate.swift in Sources */,
+				329072A9226ACF56005E8286 /* Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		321030F7200EEE67009B40C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 321030EA200EEE67009B40C7 /* BrainBlocksKit */;
-			targetProxy = 321030F6200EEE67009B40C7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		321030FD200EEE67009B40C7 /* Debug */ = {
@@ -474,36 +435,6 @@
 			};
 			name = Release;
 		};
-		32103103200EEE67009B40C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8AYF758EP8;
-				INFOPLIST_FILE = BrainBlocksKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.brainblocks.BrainBlocksKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		32103104200EEE67009B40C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8AYF758EP8;
-				INFOPLIST_FILE = BrainBlocksKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.brainblocks.BrainBlocksKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -521,15 +452,6 @@
 			buildConfigurations = (
 				32103100200EEE67009B40C7 /* Debug */,
 				32103101200EEE67009B40C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		32103102200EEE67009B40C7 /* Build configuration list for PBXNativeTarget "BrainBlocksKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				32103103200EEE67009B40C7 /* Debug */,
-				32103104200EEE67009B40C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

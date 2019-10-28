@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double BrainBlocksKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char BrainBlocksKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <BrainBlocksKit/PublicHeader.h>
-
-

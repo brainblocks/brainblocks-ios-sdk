@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BrainBlocksKit"
-  s.version      = "1.1.7"
+  s.version      = "1.1.8"
   s.summary      = "A Payment Framework for Nano."
 
   s.description  = "The BrainBlocksKit is a complete payment framework that can be used in any iOS app to accept Nano."
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
 
   s.author       = "BrainBlocks"
 
-  s.platform     = :ios, "11.0"
+  s.platform     = :ios, "12.0"
 
   s.source       = { :git => "https://github.com/brainblocks/brainblocks-ios-sdk.git", :tag => "v#{s.version}" }
 
@@ -43,10 +43,11 @@ Pod::Spec.new do |s|
     'BrainBlocksKit' => ['BrainBlocksKit/*.{storyboard,xib,png}']
   }
 
-  s.dependency 'Alamofire', '~> 4.5'
+  s.dependency 'Alamofire', '~> 5.0.0-rc.3'
   s.dependency 'QRCode'
+  s.dependency 'SwiftyJSON', '~> 4.0'
 
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
-  s.swift_version = '4.1'
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5' }
+  s.swift_version = '5'
 
 end

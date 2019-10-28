@@ -1,7 +1,8 @@
-platform :ios, '10.0'
+platform :ios, '12.0'
 use_frameworks!
 
 target 'BrainBlocksKit' do
   pod 'QRCode'
-  pod 'Alamofire', '~> 4.5'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Alamofire', '~> 5.0.0-rc.3'
 end
