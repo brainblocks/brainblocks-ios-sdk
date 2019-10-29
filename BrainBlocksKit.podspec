@@ -44,7 +44,6 @@ Pod::Spec.new do |s|
   }
 
   s.dependency 'Alamofire', '~> 5.0.0-rc.3'
-  s.dependency 'SwiftSVG', '~> 2.3'
   s.dependency 'QRCode'
   s.dependency 'SwiftyJSON', '~> 4.0'
 

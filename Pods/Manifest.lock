@@ -1,28 +1,24 @@
 PODS:
   - Alamofire (5.0.0-rc.3)
   - QRCode (2.0)
-  - SwiftSVG (2.3.2)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.3)
   - QRCode
-  - SwiftSVG (~> 2.3)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - QRCode
-    - SwiftSVG
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
-  SwiftSVG: ca7f64e403b8ea7ea8eba8c823b83ba4a059834c
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 3c45896ba26a8ec6f9925a518b311c2ea1432cb0
+PODFILE CHECKSUM: 4318ae03217d51f0673bffefdc52b39108982cba
 
 COCOAPODS: 1.8.4
