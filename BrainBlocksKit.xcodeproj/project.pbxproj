@@ -9,15 +9,18 @@
 /* Begin PBXBuildFile section */
 		321030FC200EEE67009B40C7 /* BrainBlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 321030EE200EEE67009B40C7 /* BrainBlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		321F15FB2197C123009AE0ED /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F15FA2197C123009AE0ED /* Currencies.swift */; };
-		322E7BC7227BD933008B4589 /* BrainBlocksPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322E7BC6227BD933008B4589 /* BrainBlocksPaymentViewController.swift */; };
 		322E7BC9227BD94E008B4589 /* BrainBlocksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322E7BC8227BD94D008B4589 /* BrainBlocksAPI.swift */; };
-		322E7BCB227BE999008B4589 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322E7BCA227BE999008B4589 /* Launch.swift */; };
+		324A93062367EAE500ACDAB7 /* BBPaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A93052367EAE500ACDAB7 /* BBPaymentController.swift */; };
+		324A930B2367EAF700ACDAB7 /* AF+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A93072367EAF700ACDAB7 /* AF+Extension.swift */; };
+		324A930C2367EAF700ACDAB7 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A93082367EAF700ACDAB7 /* Date+Extension.swift */; };
+		324A930D2367EAF700ACDAB7 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A93092367EAF700ACDAB7 /* Int+Extension.swift */; };
+		324A930E2367EAF700ACDAB7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A930A2367EAF700ACDAB7 /* String+Extension.swift */; };
+		324A93102367EB0300ACDAB7 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A930F2367EB0300ACDAB7 /* Values.swift */; };
+		324A93122367EB2100ACDAB7 /* VerificationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A93112367EB2100ACDAB7 /* VerificationObject.swift */; };
 		3252FA63226ACC4B00709B4D /* BrainBlocksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252FA62226ACC4B00709B4D /* BrainBlocksDelegate.swift */; };
-		326D22D8209A0A6800EBDB36 /* VerifyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326D22D7209A0A6800EBDB36 /* VerifyObject.swift */; };
 		329072A9226ACF56005E8286 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329072A8226ACF56005E8286 /* Utilities.swift */; };
 		32C51F0F201193C700576B06 /* BrainBlocksKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */; };
 		32C51F112011948600576B06 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 32C51F102011948600576B06 /* README.md */; };
-		32E6E1E120103FCA0075D296 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6E1E020103FCA0075D296 /* Extensions.swift */; };
 		32E6E1E5201057790075D296 /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E6E1DE20103E5A0075D296 /* Payment.storyboard */; };
 		32F37C912022581D0006F1AB /* Nano.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F37C902022581D0006F1AB /* Nano.png */; };
 		F04335333BF1EBAD9DB7CC23 /* Pods_BrainBlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BEFE5C3C66E522DD8653D6 /* Pods_BrainBlocksKit.framework */; };
@@ -32,16 +35,19 @@
 		321030F9200EEE67009B40C7 /* BrainBlocksKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBlocksKitTests.swift; sourceTree = "<group>"; };
 		321030FB200EEE67009B40C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321F15FA2197C123009AE0ED /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
-		322E7BC6227BD933008B4589 /* BrainBlocksPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBlocksPaymentViewController.swift; sourceTree = "<group>"; };
 		322E7BC8227BD94D008B4589 /* BrainBlocksAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBlocksAPI.swift; sourceTree = "<group>"; };
-		322E7BCA227BE999008B4589 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		324A93052367EAE500ACDAB7 /* BBPaymentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBPaymentController.swift; sourceTree = "<group>"; };
+		324A93072367EAF700ACDAB7 /* AF+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AF+Extension.swift"; sourceTree = "<group>"; };
+		324A93082367EAF700ACDAB7 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		324A93092367EAF700ACDAB7 /* Int+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		324A930A2367EAF700ACDAB7 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		324A930F2367EB0300ACDAB7 /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
+		324A93112367EB2100ACDAB7 /* VerificationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationObject.swift; sourceTree = "<group>"; };
 		3252FA62226ACC4B00709B4D /* BrainBlocksDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBlocksDelegate.swift; sourceTree = "<group>"; };
-		326D22D7209A0A6800EBDB36 /* VerifyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyObject.swift; sourceTree = "<group>"; };
 		329072A8226ACF56005E8286 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BrainBlocksKit.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		32C51F102011948600576B06 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		32E6E1DE20103E5A0075D296 /* Payment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payment.storyboard; sourceTree = "<group>"; };
-		32E6E1E020103FCA0075D296 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		32F37C902022581D0006F1AB /* Nano.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Nano.png; sourceTree = "<group>"; };
 		889C243FBEDC84BC333285B1 /* Pods-BrainBlocksKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainBlocksKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrainBlocksKit/Pods-BrainBlocksKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,13 +94,12 @@
 		321030ED200EEE67009B40C7 /* BrainBlocksKit */ = {
 			isa = PBXGroup;
 			children = (
-				322E7BCA227BE999008B4589 /* Launch.swift */,
-				322E7BC6227BD933008B4589 /* BrainBlocksPaymentViewController.swift */,
 				322E7BC8227BD94D008B4589 /* BrainBlocksAPI.swift */,
+				324A93052367EAE500ACDAB7 /* BBPaymentController.swift */,
+				324A93112367EB2100ACDAB7 /* VerificationObject.swift */,
+				321F15FA2197C123009AE0ED /* Currencies.swift */,
 				329072AA226ACFBC005E8286 /* Delegates */,
 				329072A7226ACE98005E8286 /* Helpers */,
-				321F15FA2197C123009AE0ED /* Currencies.swift */,
-				326D22D7209A0A6800EBDB36 /* VerifyObject.swift */,
 				321030EE200EEE67009B40C7 /* BrainBlocksKit.h */,
 				321030EF200EEE67009B40C7 /* Info.plist */,
 				32E6E1DE20103E5A0075D296 /* Payment.storyboard */,
@@ -117,8 +122,12 @@
 		329072A7226ACE98005E8286 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				32E6E1E020103FCA0075D296 /* Extensions.swift */,
+				324A93072367EAF700ACDAB7 /* AF+Extension.swift */,
+				324A93082367EAF700ACDAB7 /* Date+Extension.swift */,
+				324A93092367EAF700ACDAB7 /* Int+Extension.swift */,
+				324A930A2367EAF700ACDAB7 /* String+Extension.swift */,
 				329072A8226ACF56005E8286 /* Utilities.swift */,
+				324A930F2367EB0300ACDAB7 /* Values.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -248,14 +257,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324A93062367EAE500ACDAB7 /* BBPaymentController.swift in Sources */,
+				324A930B2367EAF700ACDAB7 /* AF+Extension.swift in Sources */,
 				321F15FB2197C123009AE0ED /* Currencies.swift in Sources */,
-				326D22D8209A0A6800EBDB36 /* VerifyObject.swift in Sources */,
-				322E7BCB227BE999008B4589 /* Launch.swift in Sources */,
+				324A930D2367EAF700ACDAB7 /* Int+Extension.swift in Sources */,
 				322E7BC9227BD94E008B4589 /* BrainBlocksAPI.swift in Sources */,
-				322E7BC7227BD933008B4589 /* BrainBlocksPaymentViewController.swift in Sources */,
-				32E6E1E120103FCA0075D296 /* Extensions.swift in Sources */,
+				324A930C2367EAF700ACDAB7 /* Date+Extension.swift in Sources */,
+				324A93122367EB2100ACDAB7 /* VerificationObject.swift in Sources */,
 				3252FA63226ACC4B00709B4D /* BrainBlocksDelegate.swift in Sources */,
+				324A930E2367EAF700ACDAB7 /* String+Extension.swift in Sources */,
 				329072A9226ACF56005E8286 /* Utilities.swift in Sources */,
+				324A93102367EB0300ACDAB7 /* Values.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +401,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 34;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -403,6 +416,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -416,6 +430,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 34;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -430,6 +445,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

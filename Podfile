@@ -5,4 +5,5 @@ target 'BrainBlocksKit' do
   pod 'QRCode'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'SwiftSVG', '~> 2.3'
 end

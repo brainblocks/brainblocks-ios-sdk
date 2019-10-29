@@ -21,7 +21,7 @@ To integrate BrainBlocks into your Xcode project using CocoaPods, specify it in 
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '11.0'
+platform :ios, '12.0'
 use_frameworks!
 
 target '<Your Target Name>' do
@@ -43,7 +43,7 @@ In the ViewController that you would like to use BrainBlocks, import BrainBlockK
 import UIKit
 import BrainBlocksKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BrainBlocksDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,17 +59,48 @@ class ViewController: UIViewController {
         // payment view
         let style: UIBlurEffectStyle = .light
         
-        // Follow the URL/QR standard here: https://github.com/clemahieu/raiblocks/wiki/URI-and-QR-Code-Standard
+        // Payment Destination
         let paymentAccount: String = "<Your Nano Payment Address Here>"
         
-        //set time before session timeout. must be between 120-300 seconds
-        let sessionTime: Int = 300
+        let paymentController = BBPaymentController.create()
+        paymentController.delegate = self
+        paymentController.blurStyle = style
+        paymentController.destinationAddress = paymentAccount
+        paymentController.paymentAmount = amount
+        paymentController.currency = .nano
+        paymentController.modalPresentationStyle = .fullScreen
         
         // Launch BrainBlocks Popup Payment UI
-        BrainBlocksPayment().launchBrainBlocksPaymentView(viewController: self, paymentCurrency: .nano, paymentDestination: paymentAccount, paymentAmount: amount, sessionTime: sessionTime, paymentMode: .Pay, backgroundStyle: style)
+        self.present(paymentController, animated: true, completion: nil)
     }
+    
+    func paymentSessionUpdate(status: BBResponses, data: BBSessionObject?) {
+    
+    }
+    
+    func paymentComplete(object: BBVerificationObject) {
+        
+    }
+    
  }
  ```
 
 ## BrainBlocksKit Delegate
-
+```swift
+func paymentSessionUpdate(status: BBResponses, data: BBSessionObject?)
+func paymentComplete(object: BBVerificationObject)
+```
+## BrainBlocksKit VerificationObject
+```swift
+struct BBVerificationObject {
+    let token: String
+    let destination: String
+    let currency: String
+    let amount: Int
+    let amountRai: Int
+    let receivedRai: Int
+    let fulfilled: Bool
+    let sendBlock: String
+    let sender: String
+}
+```

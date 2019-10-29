@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BrainBlocksKit"
-  s.version      = "1.1.8"
+  s.version      = "2.0"
   s.summary      = "A Payment Framework for Nano."
 
   s.description  = "The BrainBlocksKit is a complete payment framework that can be used in any iOS app to accept Nano."
@@ -40,10 +40,11 @@ Pod::Spec.new do |s|
   s.source_files  = "BrainBlocksKit", "BrainBlocksKit/**/*.{h,m,swift}"
 
   s.resource_bundles = {
-    'BrainBlocksKit' => ['BrainBlocksKit/*.{storyboard,xib,png}']
+    'BrainBlocksKit' => ['BrainBlocksKit/*.{storyboard,xib,png,svg}']
   }
 
   s.dependency 'Alamofire', '~> 5.0.0-rc.3'
+  s.dependency 'SwiftSVG', '~> 2.3'
   s.dependency 'QRCode'
   s.dependency 'SwiftyJSON', '~> 4.0'
 

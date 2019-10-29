@@ -1,5 +1,5 @@
 //
-//  BrainBlocksPaymentViewController.swift
+//  BBPaymentController.swift
 //  BrainBlocksKit
 //
 //  Created by Ty Schenk on 1/17/18.
@@ -8,9 +8,8 @@
 
 import UIKit
 import QRCode
-import WebKit
 
-final public class BrainBlocksPaymentViewController: UIViewController, BBInternalDelegate {
+final public class BBPaymentController: UIViewController, BBInternalDelegate {
     
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var copyAddress: UIView!
@@ -24,7 +23,8 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var QRButton: UIButton!
 	@IBOutlet weak var nanoLogo: UIImageView!
-	
+    @IBOutlet weak var logoView: UIView!
+    
 	internal var brainBlocksManager: BrainBlocksAPI = BrainBlocksAPI()
 	
 	public var delegate: BrainBlocksDelegate!
@@ -41,6 +41,7 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
 	internal var token: String = ""
     internal var sessionStart: Date = Date()
     internal var sessionEnd: Date = Date().adding(minutes: sessionLengthMinutes)
+    internal var handoff: Bool = false
     
     internal var fancyNanoAmount: Double {
 		return Double(round(Double(self.paymentAmount)) / 1000000)
@@ -68,6 +69,18 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
         // start payment session
         self.startSession()
     }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        if qrSet {
+            handoff = true
+        }
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        if handoff && qrSet {
+            self.brainBlocksManager.transferPayment(token: self.token)
+        }
+    }
 	
 	override public var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -94,15 +107,16 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
     
     func setPayUI() {
         // Pull framework bundle
-        let kitBundle = Bundle(for: BrainBlocksPaymentViewController.self)
+        let kitBundle = Bundle(for: BBPaymentController.self)
         let bundleURL = kitBundle.url(forResource: "BrainBlocksKit", withExtension: "bundle")
         let bundle = Bundle(url: bundleURL!)
         // set payment view nano logo
         nanoLogo.image = UIImage(named: "Nano.png", in: bundle, compatibleWith: nil)
+        accountLabel.textColor = .black
+        timerLabel.textColor = .black
     }
     
     func setBackgroundBlur() {
-        mainView.backgroundColor = UIColor.clear
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         let blurEffect = UIBlurEffect(style: self.blurStyle)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -126,6 +140,8 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
     }
     
     func roundCorners() {
+        copyAddress.layer.cornerRadius = 10
+        copyAddress.layer.masksToBounds = true
         paymentUI.layer.cornerRadius = 10.0
         paymentUI.layer.masksToBounds = true
         openWalletButton.layer.cornerRadius = 10.0
@@ -167,6 +183,7 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
         indicator.stopAnimating()
         progressValue = 1.0
         qrSet = false
+        handoff = false
         countdownTimer.invalidate()
     }
     
@@ -196,23 +213,16 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
     
     @IBAction func openWallet(_ sender: UIButton) {
         if let url = URL(string: walletURL) {
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
             UIApplication.shared.open(url, options: [:])
         }
     }
     
     // cancel payment and reset everything for another session
     @IBAction func cancelPayment() {
-        cancelButton.isHidden = true
-        timerLabel.isHidden = true
-        progressBar.isHidden = true
-        accountLabel.text = ""
-        accountLabel.text = ""
-        QRButton.setImage(UIImage(), for: .normal)
-        indicator.stopAnimating()
-        progressValue = 1.0
-        qrSet = false
-        countdownTimer.invalidate()
-		dismissPaymentView()
+        self.endTimer()
+        self.dismissPaymentView()
     }
     
 	func dismissPaymentView() {
@@ -220,7 +230,6 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
         self.endTimer()
         // dismiss main view
         UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
-            self.mainView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             self.mainView.alpha = 0.0;
         }, completion:{(finished : Bool)  in
             if (finished) {
@@ -250,7 +259,7 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
 			// build qrURL and walletUrl
 			let rawAmount: String = ("\(paymentAmount)000000000000000000000000")
 			self.qrURL = "nano:\(acccount)?amount=\(rawAmount)"
-            self.walletURL = "nano://\(acccount)/?amount=\(rawAmount)"
+            self.walletURL = "nano://\(acccount)?amount=\(rawAmount)"
             
             // generate qr code image
             guard var qrCode = QRCode(self.qrURL) else {
@@ -273,12 +282,6 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
 			self.cancelButton.isHidden = false
             self.paymentAmount = Double(paymentAmount)
             self.updatePayText()
-            
-            if let url = URL(string: walletURL) {
-                if UIApplication.shared.canOpenURL(url) == true {
-                    openWalletButton.isHidden = false
-                }
-            }
         default:
             self.dismissPaymentView()
 		}
@@ -289,14 +292,14 @@ final public class BrainBlocksPaymentViewController: UIViewController, BBInterna
         self.dismissPaymentView()
     }
 	
-	public static func launch() -> BrainBlocksPaymentViewController {
+	public static func create() -> BBPaymentController {
 		// Pull framework bundle
-		let kitBundle = Bundle(for: BrainBlocksPaymentViewController.self)
+		let kitBundle = Bundle(for: BBPaymentController.self)
 		let bundleURL = kitBundle.url(forResource: "BrainBlocksKit", withExtension: "bundle")
 		let bundle = Bundle(url: bundleURL!)
 
 		let storyboard = UIStoryboard(name: "Payment", bundle: bundle)
-		let controller = storyboard.instantiateInitialViewController() as! BrainBlocksPaymentViewController
+		let controller = storyboard.instantiateInitialViewController() as! BBPaymentController
 		
 		return controller
 	}
