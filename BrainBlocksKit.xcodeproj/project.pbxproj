@@ -19,6 +19,10 @@
 		324A93122367EB2100ACDAB7 /* VerificationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A93112367EB2100ACDAB7 /* VerificationObject.swift */; };
 		3252FA63226ACC4B00709B4D /* BrainBlocksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252FA62226ACC4B00709B4D /* BrainBlocksDelegate.swift */; };
 		329072A9226ACF56005E8286 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329072A8226ACF56005E8286 /* Utilities.swift */; };
+		329430CD2368E55C005EC7A7 /* CIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329430CA2368E55B005EC7A7 /* CIColorExtension.swift */; };
+		329430CE2368E55C005EC7A7 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329430CB2368E55C005EC7A7 /* QRCode.swift */; };
+		329430CF2368E55C005EC7A7 /* CIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329430CC2368E55C005EC7A7 /* CIImageExtension.swift */; };
+		329430D12368E563005EC7A7 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329430D02368E563005EC7A7 /* UIImageViewExtension.swift */; };
 		32C51F0F201193C700576B06 /* BrainBlocksKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */; };
 		32C51F112011948600576B06 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 32C51F102011948600576B06 /* README.md */; };
 		32E6E1E5201057790075D296 /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E6E1DE20103E5A0075D296 /* Payment.storyboard */; };
@@ -45,6 +49,10 @@
 		324A93112367EB2100ACDAB7 /* VerificationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationObject.swift; sourceTree = "<group>"; };
 		3252FA62226ACC4B00709B4D /* BrainBlocksDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBlocksDelegate.swift; sourceTree = "<group>"; };
 		329072A8226ACF56005E8286 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		329430CA2368E55B005EC7A7 /* CIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIColorExtension.swift; sourceTree = "<group>"; };
+		329430CB2368E55C005EC7A7 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		329430CC2368E55C005EC7A7 /* CIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageExtension.swift; sourceTree = "<group>"; };
+		329430D02368E563005EC7A7 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		32C51F0E201193C700576B06 /* BrainBlocksKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BrainBlocksKit.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		32C51F102011948600576B06 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		32E6E1DE20103E5A0075D296 /* Payment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payment.storyboard; sourceTree = "<group>"; };
@@ -100,6 +108,7 @@
 				321F15FA2197C123009AE0ED /* Currencies.swift */,
 				329072AA226ACFBC005E8286 /* Delegates */,
 				329072A7226ACE98005E8286 /* Helpers */,
+				329430C12368E513005EC7A7 /* QRCode */,
 				321030EE200EEE67009B40C7 /* BrainBlocksKit.h */,
 				321030EF200EEE67009B40C7 /* Info.plist */,
 				32E6E1DE20103E5A0075D296 /* Payment.storyboard */,
@@ -138,6 +147,17 @@
 				3252FA62226ACC4B00709B4D /* BrainBlocksDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		329430C12368E513005EC7A7 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				329430D02368E563005EC7A7 /* UIImageViewExtension.swift */,
+				329430CA2368E55B005EC7A7 /* CIColorExtension.swift */,
+				329430CC2368E55C005EC7A7 /* CIImageExtension.swift */,
+				329430CB2368E55C005EC7A7 /* QRCode.swift */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		BB78A58C2930D2C2337420C1 /* Pods */ = {
@@ -194,7 +214,7 @@
 				TargetAttributes = {
 					321030EA200EEE67009B40C7 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1110;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -260,11 +280,15 @@
 				324A93062367EAE500ACDAB7 /* BBPaymentController.swift in Sources */,
 				324A930B2367EAF700ACDAB7 /* AF+Extension.swift in Sources */,
 				321F15FB2197C123009AE0ED /* Currencies.swift in Sources */,
+				329430CF2368E55C005EC7A7 /* CIImageExtension.swift in Sources */,
 				324A930D2367EAF700ACDAB7 /* Int+Extension.swift in Sources */,
+				329430D12368E563005EC7A7 /* UIImageViewExtension.swift in Sources */,
 				322E7BC9227BD94E008B4589 /* BrainBlocksAPI.swift in Sources */,
+				329430CD2368E55C005EC7A7 /* CIColorExtension.swift in Sources */,
 				324A930C2367EAF700ACDAB7 /* Date+Extension.swift in Sources */,
 				324A93122367EB2100ACDAB7 /* VerificationObject.swift in Sources */,
 				3252FA63226ACC4B00709B4D /* BrainBlocksDelegate.swift in Sources */,
+				329430CE2368E55C005EC7A7 /* QRCode.swift in Sources */,
 				324A930E2367EAF700ACDAB7 /* String+Extension.swift in Sources */,
 				329072A9226ACF56005E8286 /* Utilities.swift in Sources */,
 				324A93102367EB0300ACDAB7 /* Values.swift in Sources */,
@@ -418,7 +442,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -446,7 +470,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

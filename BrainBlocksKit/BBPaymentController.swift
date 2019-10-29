@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import QRCode
 
 final public class BBPaymentController: UIViewController, BBInternalDelegate {
     
